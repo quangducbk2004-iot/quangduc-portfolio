@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đào Quang Đức — Personal Portfolio & Google AI Ambassador</title>
+  <meta name="description" content="Portfolio cá nhân của Đào Quang Đức — Tân Kỹ sư Điện tử Viễn thông ĐHBK Hà Nội, Đại sứ Sinh viên Google Gemini Việt Nam, Content Creator TikTok @hust_my_dream (31.1K likes).">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+  
+  <!-- Fonts: Geist, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN for utility classes -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Geist', 'Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            juno: {
+              bg: 'var(--juno-bg)',
+              card: 'var(--juno-card)',
+              cardHover: 'var(--juno-card-hover)',
+              border: 'var(--juno-border)',
+              borderHover: 'var(--juno-border-hover)',
+              text: 'var(--juno-text)',
+              muted: 'var(--juno-muted)',
+              subtle: 'var(--juno-subtle)',
+              accent: 'var(--juno-accent)',
+              accentRed: '#ed2525',
+              geminiBlue: '#4285F4',
+              geminiPurple: '#9B72CF',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-juno-bg text-juno-text antialiased selection:bg-red-500/20 selection:text-red-400 transition-colors duration-300">
+
+  <!-- TOP PROGRESS BAR -->
+  <div id="scroll-progress" class="fixed top-0 left-0 h-[2px] bg-gradient-to-r from-blue-500 via-purple-500 to-red-500 z-50 w-0 transition-all duration-75"></div>
+
+  <!-- FLOATING NAVIGATION (Juno Glass Style) -->
+  <header class="fixed top-4 left-0 right-0 z-40 px-4 sm:px-8 max-w-7xl mx-auto flex justify-center pointer-events-none">
+    <nav class="pointer-events-auto w-full backdrop-blur-xl bg-juno-card/85 border border-juno-border rounded-full px-5 py-3 shadow-2xl flex items-center justify-between transition-all duration-300">
+      
+      <!-- Brand & Live Indicator -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="relative w-9 h-9 rounded-full overflow-hidden border border-juno-border group-hover:border-red-500 transition-colors shadow-sm shrink-0 bg-neutral-800">
+          <img src="avatar.jpg" alt="Đào Quang Đức" class="w-full h-full object-cover object-top scale-105 group-hover:scale-110 transition-transform duration-300">
+        </div>
+        <div class="flex flex-col">
+          <span class="font-bold text-sm tracking-tight text-juno-text group-hover:text-red-500 transition-colors">Đào Quang Đức</span>
+          <span class="hidden sm:flex items-center gap-1.5 text-[10px] text-emerald-500 font-mono">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+            <span>Google Gemini Ambassador • HUST</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="hidden md:flex items-center gap-6 text-xs font-medium text-juno-muted">
+        <a href="#about" class="hover:text-juno-text transition-colors">Về tôi</a>
+        <a href="#projects" class="hover:text-juno-text transition-colors">Dự án & Workshop</a>
+        <a href="#awards" class="hover:text-juno-text transition-colors">Giải thưởng</a>
+        <a href="#experience" class="hover:text-juno-text transition-colors">Kinh nghiệm</a>
+        <a href="#expertise" class="hover:text-juno-text transition-colors">Chuyên môn</a>
+        <a href="#faq" class="hover:text-juno-text transition-colors">FAQ</a>
+      </div>
+
+      <!-- Right Action Tools -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="p-2 rounded-full border border-juno-border hover:border-juno-borderHover text-juno-muted hover:text-juno-text transition-all bg-juno-card/50" title="Đổi giao diện Sáng / Tối">
+          <i data-lucide="moon" class="w-4 h-4 dark:hidden"></i>
+          <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+        </button>
+
+        <!-- CTA Button -->
+        <a href="#contact" class="hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-juno-text text-juno-bg font-semibold text-xs hover:opacity-90 transition-opacity">
+          <span>Liên hệ ngay</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-full border border-juno-border text-juno-text">
+          <i data-lucide="menu" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MOBILE MENU DRAWER -->
+  <div id="mobile-menu" class="fixed inset-0 bg-black/80 backdrop-blur-2xl z-50 hidden flex-col justify-between p-8 transition-all">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full overflow-hidden border border-white/20 shrink-0 bg-neutral-800">
+          <img src="avatar.jpg" alt="Đào Quang Đức" class="w-full h-full object-cover object-top">
+        </div>
+        <div>
+          <span class="font-bold text-white text-base block">Đào Quang Đức</span>
+          <span class="text-[11px] font-mono text-emerald-400">Google Gemini Ambassador</span>
+        </div>
+      </div>
+      <button id="close-mobile-menu" class="p-2 rounded-full border border-white/20 text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <div class="flex flex-col gap-6 text-xl font-bold text-neutral-300 my-auto">
+      <a href="#about" class="mobile-nav-link hover:text-white transition-colors">/01 Về tôi</a>
+      <a href="#projects" class="mobile-nav-link hover:text-white transition-colors">/02 Dự án & Workshop</a>
+      <a href="#awards" class="mobile-nav-link hover:text-white transition-colors">/03 Thành tích & Giải thưởng</a>
+      <a href="#experience" class="mobile-nav-link hover:text-white transition-colors">/04 Hành trình & Kinh nghiệm</a>
+      <a href="#expertise" class="mobile-nav-link hover:text-white transition-colors">/05 Lĩnh vực chuyên môn</a>
+      <a href="#faq" class="mobile-nav-link hover:text-white transition-colors">/06 Hỏi đáp thường gặp</a>
+      <a href="#contact" class="mobile-nav-link hover:text-white transition-colors">/07 Kết nối hợp tác</a>
+    </div>
+
+    <div class="pt-6 border-t border-white/10 flex justify-between items-center text-xs text-neutral-400">
+      <span>© 2026 Đào Quang Đức</span>
+      <span class="text-emerald-400 font-mono">HUST • Gemini Ambassador</span>
+    </div>
+  </div>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-8 pt-32 sm:pt-40 pb-20">
+
+    <!-- ========================================================================= -->
+    <!-- 1. HERO SECTION -->
+    <!-- ========================================================================= -->
+    <section id="hero" class="relative mb-28 sm:mb-36">
+      
+      <!-- Top Subtitle Badges -->
+      <div class="flex flex-wrap items-center gap-2 mb-6">
+        <span class="px-3 py-1 rounded-full border border-juno-border bg-juno-card text-xs font-mono text-juno-muted flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-blue-500"></span> Google Gemini Student Ambassador Vietnam
+        </span>
+        <span class="px-3 py-1 rounded-full border border-juno-border bg-juno-card text-xs font-mono text-juno-muted flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-red-500"></span> ĐHBK Hà Nội • Điện tử - Viễn thông
+        </span>
+        <span class="px-3 py-1 rounded-full border border-juno-border bg-juno-card text-xs font-mono text-juno-muted flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span> TikTok: @hust_my_dream (31.1K likes)
+        </span>
+      </div>
+
+      <!-- Hero Main 2-Column Showcase (Juno Style with Photo) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-12">
+        
+        <!-- Left Col: Typography, Bio & CTA -->
+        <div class="lg:col-span-7 flex flex-col justify-center">
+          
+          <!-- Massive Name Display -->
+          <div class="overflow-hidden mb-6">
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight uppercase leading-[0.95] text-juno-text">
+              ĐÀO QUANG ĐỨC
+            </h1>
+          </div>
+
+          <p class="text-base sm:text-xl font-light text-juno-muted leading-relaxed mb-8">
+            Sinh viên năm cuối vừa tốt nghiệp <strong class="font-semibold text-juno-text">Đại học Bách Khoa Hà Nội</strong> (Ngành Kỹ thuật Điện tử – Viễn thông). Tiên phong lan tỏa <span class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent font-semibold">Google Gemini AI</span>, kết nối công nghệ phần cứng STEM và truyền cảm hứng học tập thực chiến tới hàng ngàn sinh viên qua các workshop quy mô 1.500+ người và nội dung số sáng tạo.
+          </p>
+
+          <!-- Social Links Pills -->
+          <div class="flex flex-wrap gap-2.5 mb-8">
+            <a href="https://www.facebook.com/quangducinhust2k4/" target="_blank" rel="noopener" class="juno-social-pill">
+              <i data-lucide="facebook" class="w-3.5 h-3.5 text-blue-500"></i>
+              <span>Facebook</span>
+              <i data-lucide="arrow-up-right" class="w-3 h-3 text-juno-subtle"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/%C4%91%C3%A0o-quang-%C4%91%E1%BB%A9c-8582a4209" target="_blank" rel="noopener" class="juno-social-pill">
+              <i data-lucide="linkedin" class="w-3.5 h-3.5 text-blue-400"></i>
+              <span>LinkedIn</span>
+              <i data-lucide="arrow-up-right" class="w-3 h-3 text-juno-subtle"></i>
+            </a>
+            <a href="https://www.tiktok.com/@hust_my_dream" target="_blank" rel="noopener" class="juno-social-pill">
+              <i data-lucide="video" class="w-3.5 h-3.5 text-pink-500"></i>
+              <span>TikTok @hust_my_dream</span>
+              <i data-lucide="arrow-up-right" class="w-3 h-3 text-juno-subtle"></i>
+            </a>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center gap-3">
+            <a href="#projects" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-juno-text text-juno-bg font-semibold text-sm hover:opacity-90 transition-all shadow-lg hover:scale-105 duration-200">
+              <span>Khám phá Workshop & Dự Án</span>
+              <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+            </a>
+            <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-juno-border bg-juno-card hover:border-juno-borderHover text-juno-text font-medium text-sm transition-all hover:scale-105 duration-200">
+              <span>Liên hệ hợp tác ✉</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right Col: Portrait Profile Card (Juno High-End Showcase) -->
+        <div class="lg:col-span-5 flex justify-center lg:justify-end">
+          <div class="relative w-full max-w-sm sm:max-w-md rounded-3xl border border-juno-border bg-juno-card p-3 shadow-2xl backdrop-blur-md overflow-hidden group hover:border-juno-borderHover transition-all duration-500">
+            
+            <!-- Ambient Glow Effect -->
+            <div class="absolute -inset-1 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-red-600/20 rounded-3xl blur-xl opacity-50 group-hover:opacity-100 transition duration-700"></div>
+
+            <div class="relative aspect-[3/4] sm:aspect-[4/5] rounded-2xl overflow-hidden bg-neutral-900 border border-juno-border/60">
+              <img src="avatar.jpg" alt="Đào Quang Đức - Google Gemini Student Ambassador & HUST Engineer" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out">
+              
+              <!-- Subtle Bottom Dark Gradient for Text Legibility -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+              
+              <!-- Top Live Status Pill -->
+              <div class="absolute top-3 left-3 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-[11px] font-mono text-white shadow-lg">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Google Gemini Ambassador</span>
+              </div>
+
+              <!-- Top Right Year Badge -->
+              <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-[11px] font-mono text-neutral-300">
+                2024 — Nay
+              </div>
+
+              <!-- Bottom Profile Info Banner -->
+              <div class="absolute bottom-3 left-3 right-3 p-3.5 rounded-xl bg-black/75 backdrop-blur-md border border-white/15 flex items-center justify-between shadow-lg">
+                <div>
+                  <div class="text-white font-bold text-sm tracking-tight flex items-center gap-1.5">
+                    <span>Đào Quang Đức</span>
+                    <i data-lucide="badge-check" class="w-4 h-4 text-blue-400 fill-blue-400/20"></i>
+                  </div>
+                  <div class="text-[11px] font-mono text-neutral-300 mt-0.5">
+                    Speaker • HUST Engineer • Tech Creator
+                  </div>
+                </div>
+                <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white border border-white/10">
+                  <i data-lucide="sparkles" class="w-4 h-4 text-blue-400"></i>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- STATS BANNER (Juno Style 4 Cards Counter) -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 sm:p-8 rounded-3xl border border-juno-border bg-juno-card/50 backdrop-blur-sm">
+        <div class="flex flex-col border-r border-juno-border/50 pr-4 last:border-none">
+          <div class="text-3xl sm:text-5xl font-black tracking-tight text-juno-text flex items-baseline">
+            <span class="counter" data-target="1580">0</span><span class="text-blue-500 text-2xl sm:text-3xl font-bold">+</span>
+          </div>
+          <span class="text-xs font-mono uppercase tracking-wider text-juno-muted mt-1">Người tham gia Workshop AI</span>
+          <span class="text-[11px] text-juno-subtle mt-0.5">1,320 trực tiếp + 260 trực tuyến</span>
+        </div>
+
+        <div class="flex flex-col border-r border-juno-border/50 pr-4 last:border-none">
+          <div class="text-3xl sm:text-5xl font-black tracking-tight text-juno-text flex items-baseline">
+            <span class="counter" data-target="31.1" data-decimals="1">0</span><span class="text-pink-500 text-2xl sm:text-3xl font-bold">K+</span>
+          </div>
+          <span class="text-xs font-mono uppercase tracking-wider text-juno-muted mt-1">Lượt Thích TikTok</span>
+          <span class="text-[11px] text-juno-subtle mt-0.5">@hust_my_dream (~800 fl)</span>
+        </div>
+
+        <div class="flex flex-col border-r border-juno-border/50 pr-4 last:border-none">
+          <div class="text-3xl sm:text-5xl font-black tracking-tight text-juno-text flex items-baseline">
+            <span class="counter" data-target="17">0</span><span class="text-purple-500 text-2xl sm:text-3xl font-bold">K+</span>
+          </div>
+          <span class="text-xs font-mono uppercase tracking-wider text-juno-muted mt-1">Followers Fanpage SRC</span>
+          <span class="text-[11px] text-juno-subtle mt-0.5">CLB Sinh viên NCKH Trường Điện</span>
+        </div>
+
+        <div class="flex flex-col">
+          <div class="text-3xl sm:text-5xl font-black tracking-tight text-juno-text flex items-baseline">
+            <span class="counter" data-target="4.9" data-decimals="1">0</span><span class="text-emerald-500 text-2xl sm:text-3xl font-bold">/5★</span>
+          </div>
+          <span class="text-xs font-mono uppercase tracking-wider text-juno-muted mt-1">Đánh Giá Xuất Sắc</span>
+          <span class="text-[11px] text-juno-subtle mt-0.5">Feedback trung bình các Workshop</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 2. BENTO OVERVIEW / ABOUT ME (4 CORE PILLARS) -->
+    <!-- ========================================================================= -->
+    <section id="about" class="mb-28 sm:mb-36">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-juno-border">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-juno-muted">/01 Về Bản Thân & Định Hướng</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight uppercase mt-2 text-juno-text">
+            Hành Trình & 4 Trụ Cột Nổi Bật
+          </h2>
+        </div>
+        <p class="text-sm text-juno-muted max-w-md mt-4 md:mt-0 font-light">
+          Kết hợp giữa tư duy kỹ thuật Điện tử Viễn thông chính quy tại Bách Khoa, tinh thần dấn thân vì cộng đồng thanh niên và khả năng khai phóng sức mạnh AI tạo sinh.
+        </p>
+      </div>
+
+      <!-- Bento Grid (Juno Style) -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+        
+        <!-- Pillar 1: Google Gemini Ambassador (Large Card) -->
+        <div class="md:col-span-7 rounded-3xl border border-juno-border bg-juno-card p-8 hover:border-juno-borderHover transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+          <div class="absolute -top-24 -right-24 w-60 h-60 bg-blue-500/10 rounded-full blur-3xl group-hover:bg-blue-500/20 transition-all duration-500"></div>
+          
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 font-mono text-xs font-semibold">
+                Google Student Ambassador
+              </span>
+              <span class="text-xs font-mono text-juno-subtle">2024 — Nay</span>
+            </div>
+            
+            <h3 class="text-2xl font-bold text-juno-text tracking-tight mb-3 group-hover:text-blue-400 transition-colors">
+              Đại Sứ Sinh Viên Google – Gemini Việt Nam (Mùa 1)
+            </h3>
+            
+            <p class="text-sm text-juno-muted leading-relaxed mb-6 font-light">
+              Đại diện tiên phong truyền thông và đứng lớp chia sẻ về <strong class="text-juno-text">Gemini & AI</strong> trong học tập, nghiên cứu khoa học và đời sống sinh viên. Đồng tổ chức và làm <em>Technique Manager</em> cho các workshop quy mô lên tới <strong class="text-juno-text">1.500+ sinh viên</strong>, kết nối bền chặt với mạng lưới Đại sứ sinh viên Google tại Việt Nam và Đông Nam Á (Indonesia, Singapore...).
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-juno-border/50 text-xs font-mono text-juno-subtle">
+            <span class="px-2.5 py-1 rounded-md bg-juno-bg border border-juno-border">#GeminiAI</span>
+            <span class="px-2.5 py-1 rounded-md bg-juno-bg border border-juno-border">#PromptEngineering</span>
+            <span class="px-2.5 py-1 rounded-md bg-juno-bg border border-juno-border">#TechniqueManager</span>
+            <span class="px-2.5 py-1 rounded-md bg-juno-bg border border-juno-border">#SEA_Ambassadors</span>
+          </div>
+        </div>
+
+        <!-- Pillar 2: Electronic & Telecommunications (HUST) -->
+        <div class="md:col-span-5 rounded-3xl border border-juno-border bg-juno-card p-8 hover:border-juno-borderHover transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+          <div class="absolute -top-24 -right-24 w-60 h-60 bg-red-500/10 rounded-full blur-3xl group-hover:bg-red-500/20 transition-all duration-500"></div>
+
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="px-3 py-1 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 font-mono text-xs font-semibold">
+                Bách Khoa Hà Nội
+              </span>
+              <span class="text-xs font-mono text-juno-subtle">2021 — 2025</span>
+            </div>
+
+            <h3 class="text-2xl font-bold text-juno-text tracking-tight mb-3 group-hover:text-red-400 transition-colors">
+              Kỹ Thuật Điện Tử – Viễn Thông & Lab STEM
+            </h3>
+
+            <p class="text-sm text-juno-muted leading-relaxed mb-6 font-light">
+              Tốt nghiệp Trường Điện - Điện tử ĐHBK Hà Nội. Thành viên <strong class="text-juno-text">Lab BK_FET STEM</strong>, trực tiếp hướng dẫn sinh viên thực hành, thí nghiệm chuyên ngành và thuyết trình, biểu diễn sản phẩm công nghệ điện tử tại các dịp <strong class="text-juno-text">HUST OpenDay</strong> cho học sinh THPT, THCS.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-juno-border/50 text-xs font-mono text-juno-subtle">
+            <span class="px-2.5 py-1 rounded-md bg-juno-bg border border-juno-border">#BK_FET_STEM</span>
+            <span class="px-2.5 py-1 rounded-md bg-juno-bg border border-juno-border">#HardwareLab</span>
+            <span class="px-2.5 py-1 rounded-md bg-juno-bg border border-juno-border">#HUST_OpenDay</span>
+          </div>
+        </div>
+
+        <!-- Pillar 3: Youth Leadership & Đoàn Hội (2022-2025) -->
+        <div class="md:col-span-5 rounded-3xl border border-juno-border bg-juno-card p-8 hover:border-juno-borderHover transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+          <div class="absolute -top-24 -right-24 w-60 h-60 bg-emerald-500/10 rounded-full blur-3xl group-hover:bg-emerald-500/20 transition-all duration-500"></div>
+
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-xs font-semibold">
+                Thủ Lĩnh Thanh Niên
+              </span>
+              <span class="text-xs font-mono text-juno-subtle">2022 — 2025</span>
+            </div>
+
+            <h3 class="text-2xl font-bold text-juno-text tracking-tight mb-3 group-hover:text-emerald-400 transition-colors">
+              Phó Ban Học Tập Đoàn Trường & CLB SRC
+            </h3>
+
+            <p class="text-sm text-juno-muted leading-relaxed mb-6 font-light">
+              Phó Ban Học tập BCH Đoàn Thanh niên Trường Điện - Điện tử (2022-2025), Ban chuyên môn & Truyền thông CLB Sinh viên NCKH SRC (17K+ fl), Đại sứ truyền thông EPI. Tổ chức các tọa đàm chuyên ngành, tập huấn cán bộ Đoàn - Hội, dự án hiến máu nhân đạo và thiện nguyện.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-juno-border/50 text-xs font-mono text-juno-subtle">
+            <span class="px-2.5 py-1 rounded-md bg-juno-bg border border-juno-border">#ĐoànThanhNiênHUST</span>
+            <span class="px-2.5 py-1 rounded-md bg-juno-bg border border-juno-border">#SRC_17K_Followers</span>
+            <span class="px-2.5 py-1 rounded-md bg-juno-bg border border-juno-border">#EPI_Ambassador</span>
+          </div>
+        </div>
+
+        <!-- Pillar 4: TikTok Creator & Storytelling -->
+        <div class="md:col-span-7 rounded-3xl border border-juno-border bg-juno-card p-8 hover:border-juno-borderHover transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+          <div class="absolute -top-24 -right-24 w-60 h-60 bg-pink-500/10 rounded-full blur-3xl group-hover:bg-pink-500/20 transition-all duration-500"></div>
+
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="px-3 py-1 rounded-full bg-pink-500/10 border border-pink-500/30 text-pink-400 font-mono text-xs font-semibold">
+                Content Creator
+              </span>
+              <span class="text-xs font-mono text-juno-subtle">@hust_my_dream</span>
+            </div>
+
+            <h3 class="text-2xl font-bold text-juno-text tracking-tight mb-3 group-hover:text-pink-400 transition-colors">
+              Sáng Tạo Nội Dung Truyền Cảm Hứng (31.1K Lượt Thích)
+            </h3>
+
+            <p class="text-sm text-juno-muted leading-relaxed mb-6 font-light">
+              Kênh TikTok ghi lại chân thực cuộc sống thời đại học của sinh viên Bách Khoa: hành trình chinh phục các cuộc thi công nghệ, đời sống thực tập – đi làm, phương pháp tự học và ứng dụng công nghệ hiện đại. Lan tỏa năng lượng tích cực và định hướng nghề nghiệp cho hàng chục ngàn bạn trẻ.
+            </p>
+          </div>
+
+          <div class="flex items-center justify-between pt-4 border-t border-juno-border/50">
+            <div class="flex flex-wrap gap-2 text-xs font-mono text-juno-subtle">
+              <span class="px-2.5 py-1 rounded-md bg-juno-bg border border-juno-border">31.1K+ Likes</span>
+              <span class="px-2.5 py-1 rounded-md bg-juno-bg border border-juno-border">~800 Followers</span>
+              <span class="px-2.5 py-1 rounded-md bg-juno-bg border border-juno-border">4+ Giải Thưởng Video</span>
+            </div>
+            <a href="https://www.tiktok.com/@hust_my_dream" target="_blank" rel="noopener" class="text-xs font-semibold text-pink-500 hover:text-pink-400 flex items-center gap-1">
+              Xem kênh TikTok <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 3. SELECTED PROJECTS & WORKSHOPS (Juno Core Section) -->
+    <!-- ========================================================================= -->
+    <section id="projects" class="mb-28 sm:mb-36">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-6 border-b border-juno-border">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-juno-muted">/02 Dự Án & Hoạt Động Tiêu Biểu</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight uppercase mt-2 text-juno-text">
+            Dự Án Chọn Lọc & Workshop Tác Động
+          </h2>
+        </div>
+        <p class="text-sm text-juno-muted max-w-md mt-4 md:mt-0 font-light">
+          Mỗi dự án là một minh chứng về tính thực tiễn, khả năng tổ chức kỹ thuật chuẩn xác và sức ảnh hưởng lan tỏa đến cộng đồng thế hệ trẻ.
+        </p>
+      </div>
+
+      <!-- Filter Buttons (Juno Style Tabs) -->
+      <div class="flex flex-wrap gap-2 mb-10" id="project-filters">
+        <button class="filter-btn active" data-filter="all">Tất cả (6)</button>
+        <button class="filter-btn" data-filter="ai">Google AI & Workshops (2)</button>
+        <button class="filter-btn" data-filter="stem">Điện tử & STEM Lab (1)</button>
+        <button class="filter-btn" data-filter="tiktok">Creator & TikTok (1)</button>
+        <button class="filter-btn" data-filter="community">Đoàn Hội & NCKH (2)</button>
+      </div>
+
+      <!-- Project Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="project-grid">
+
+        <!-- PROJECT 1: Workshop 1,580+ AI Senior Dev Testing (Featured Mega Project) -->
+        <div class="project-card group" data-category="ai" onclick="openProjectModal('project-code-optimization')">
+          <div class="project-img-wrapper relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden bg-neutral-900 border border-juno-border mb-6">
+            <div class="absolute inset-0 bg-gradient-to-tr from-blue-900/60 via-purple-900/40 to-neutral-950/80 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center p-6">
+              <div class="text-center">
+                <span class="inline-block px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/40 text-blue-300 font-mono text-xs font-semibold mb-3">
+                  Google Student Ambassador Project
+                </span>
+                <h4 class="text-xl sm:text-2xl font-bold text-white max-w-md mx-auto">
+                  Ứng dụng Gemini trong Tối ưu hóa Mã nguồn & Kiểm thử Phần mềm
+                </h4>
+                <div class="flex items-center justify-center gap-4 text-xs font-mono text-neutral-300 mt-4">
+                  <span class="flex items-center gap-1"><i data-lucide="users" class="w-3.5 h-3.5 text-blue-400"></i> 1,580+ Sinh viên</span>
+                  <span class="flex items-center gap-1"><i data-lucide="star" class="w-3.5 h-3.5 text-yellow-400"></i> 4.28/5 Rating</span>
+                </div>
+              </div>
+            </div>
+            <div class="absolute top-4 right-4 bg-juno-bg/80 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono border border-juno-border">
+              2024
+            </div>
+            <div class="absolute bottom-4 left-4 flex gap-2">
+              <span class="px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-white border border-white/10">Technique Manager</span>
+              <span class="px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-white border border-white/10">Senior Dev 6-Step</span>
+            </div>
+          </div>
+
+          <div class="flex items-baseline justify-between mb-2">
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-mono text-blue-500 font-semibold">/DỰ ÁN AI TRỌNG ĐIỂM</span>
+              <span class="text-juno-subtle">•</span>
+              <span class="text-xs font-mono text-juno-muted">Quy mô 1.580+ sinh viên</span>
+            </div>
+            <span class="text-xs font-mono text-juno-subtle">Google AI Vietnam</span>
+          </div>
+
+          <h3 class="text-xl font-bold text-juno-text group-hover:text-blue-500 transition-colors mb-2">
+            Workshop: "Ứng dụng Gemini trong Tối ưu hóa Mã nguồn và Kiểm thử Phần mềm"
+          </h3>
+
+          <p class="text-sm text-juno-muted line-clamp-2 font-light mb-4">
+            Đóng vai trò Technique Manager trực tiếp xây dựng phương án dự phòng và quản trị rủi ro kỹ thuật. Tiếp cận 1.320 sinh viên trực tiếp và 260 trực tuyến, trang bị quy trình 6 bước sử dụng Gemini như "Senior Developer".
+          </p>
+
+          <div class="flex items-center justify-between text-xs font-semibold text-juno-text pt-3 border-t border-juno-border/60">
+            <span class="text-blue-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              Xem chi tiết báo cáo & quy trình <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </span>
+            <span class="font-mono text-emerald-400">82% Referral Rate</span>
+          </div>
+        </div>
+
+        <!-- PROJECT 2: Gemini Youth Workshop Series (4 Chuyên Đề) -->
+        <div class="project-card group" data-category="ai" onclick="openProjectModal('project-gemini-series')">
+          <div class="project-img-wrapper relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden bg-neutral-900 border border-juno-border mb-6">
+            <div class="absolute inset-0 bg-gradient-to-tr from-purple-900/60 via-pink-900/40 to-neutral-950/80 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center p-6">
+              <div class="text-center">
+                <span class="inline-block px-3 py-1 rounded-full bg-purple-500/20 border border-purple-400/40 text-purple-300 font-mono text-xs font-semibold mb-3">
+                  Google Gemini Student Series
+                </span>
+                <h4 class="text-xl sm:text-2xl font-bold text-white max-w-md mx-auto">
+                  Chuỗi Workshop “Lãnh Đạo Gen Z & Tối Ưu NCKH Cùng Google AI”
+                </h4>
+                <div class="flex items-center justify-center gap-4 text-xs font-mono text-neutral-300 mt-4">
+                  <span class="flex items-center gap-1"><i data-lucide="users" class="w-3.5 h-3.5 text-purple-400"></i> 500+ Sinh viên</span>
+                  <span class="flex items-center gap-1"><i data-lucide="star" class="w-3.5 h-3.5 text-yellow-400"></i> 4.5 - 4.9★ / 5★</span>
+                </div>
+              </div>
+            </div>
+            <div class="absolute top-4 right-4 bg-juno-bg/80 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono border border-juno-border">
+              2024
+            </div>
+            <div class="absolute bottom-4 left-4 flex gap-2">
+              <span class="px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-white border border-white/10">4 Chuyên Đề</span>
+              <span class="px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-white border border-white/10">HUST & ĐH Lân Cận</span>
+            </div>
+          </div>
+
+          <div class="flex items-baseline justify-between mb-2">
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-mono text-purple-500 font-semibold">/CHUỖI WORKSHOP AI</span>
+              <span class="text-juno-subtle">•</span>
+              <span class="text-xs font-mono text-juno-muted">500+ sinh viên</span>
+            </div>
+            <span class="text-xs font-mono text-juno-subtle">Bách Khoa & Hà Nội</span>
+          </div>
+
+          <h3 class="text-xl font-bold text-juno-text group-hover:text-purple-500 transition-colors mb-2">
+            Chuỗi 4 Workshop Đào Tạo AI Thực Chiến: Vận Hành CLB, NCKH, CV & Website
+          </h3>
+
+          <p class="text-sm text-juno-muted line-clamp-2 font-light mb-4">
+            Bao gồm 4 chuyên đề: "Lãnh đạo Gen Z: Tối ưu vận hành CLB", "HACK YOUR RESEARCH: Tối ưu NCKH", "Gemini Career Quest", "Launch Yourself Online". Đạt đánh giá xuất sắc 4.5 - 4.9*.
+          </p>
+
+          <div class="flex items-center justify-between text-xs font-semibold text-juno-text pt-3 border-t border-juno-border/60">
+            <span class="text-purple-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              Xem chi tiết 4 chuyên đề <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </span>
+            <span class="font-mono text-purple-400">Đánh giá: 4.9/5.0★</span>
+          </div>
+        </div>
+
+        <!-- PROJECT 3: TikTok Creator Channel & Storytelling -->
+        <div class="project-card group" data-category="tiktok" onclick="openProjectModal('project-tiktok-channel')">
+          <div class="project-img-wrapper relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden bg-neutral-900 border border-juno-border mb-6">
+            <div class="absolute inset-0 bg-gradient-to-tr from-pink-900/60 via-red-900/40 to-neutral-950/80 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center p-6">
+              <div class="text-center">
+                <span class="inline-block px-3 py-1 rounded-full bg-pink-500/20 border border-pink-400/40 text-pink-300 font-mono text-xs font-semibold mb-3">
+                  Content Creation & TikTok
+                </span>
+                <h4 class="text-xl sm:text-2xl font-bold text-white max-w-md mx-auto">
+                  Kênh TikTok @hust_my_dream — Đời Sống & Thành Tích Bách Khoa
+                </h4>
+                <div class="flex items-center justify-center gap-4 text-xs font-mono text-neutral-300 mt-4">
+                  <span class="flex items-center gap-1"><i data-lucide="heart" class="w-3.5 h-3.5 text-pink-400"></i> 31,100+ Likes</span>
+                  <span class="flex items-center gap-1"><i data-lucide="trophy" class="w-3.5 h-3.5 text-yellow-400"></i> 4+ Giải Thưởng</span>
+                </div>
+              </div>
+            </div>
+            <div class="absolute top-4 right-4 bg-juno-bg/80 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono border border-juno-border">
+              2022 — Nay
+            </div>
+            <div class="absolute bottom-4 left-4 flex gap-2">
+              <span class="px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-white border border-white/10">31.1K Likes</span>
+              <span class="px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-white border border-white/10">HUST Life</span>
+            </div>
+          </div>
+
+          <div class="flex items-baseline justify-between mb-2">
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-mono text-pink-500 font-semibold">/SÁNG TẠO NỘI DUNG</span>
+              <span class="text-juno-subtle">•</span>
+              <span class="text-xs font-mono text-juno-muted">TikTok Creator</span>
+            </div>
+            <span class="text-xs font-mono text-juno-subtle">TikTok Channel</span>
+          </div>
+
+          <h3 class="text-xl font-bold text-juno-text group-hover:text-pink-500 transition-colors mb-2">
+            Chia Sẻ Hành Trình Học Tập, Nghiên Cứu, Cuộc Thi & Đời Sống Thực Tập
+          </h3>
+
+          <p class="text-sm text-juno-muted line-clamp-2 font-light mb-4">
+            Xây dựng chuỗi video đạt giải thưởng: Giải 3 SIC - Be A Gentech, Giải 3 Một thoáng Bách Khoa, Giải truyền thông 30/4, Giải Nhì Learn With Tech.
+          </p>
+
+          <div class="flex items-center justify-between text-xs font-semibold text-juno-text pt-3 border-t border-juno-border/60">
+            <span class="text-pink-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              Xem chi tiết kênh & giải thưởng <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </span>
+            <span class="font-mono text-pink-400">@hust_my_dream</span>
+          </div>
+        </div>
+
+        <!-- PROJECT 4: BK_FET STEM Lab & HUST OpenDay -->
+        <div class="project-card group" data-category="stem" onclick="openProjectModal('project-stem-lab')">
+          <div class="project-img-wrapper relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden bg-neutral-900 border border-juno-border mb-6">
+            <div class="absolute inset-0 bg-gradient-to-tr from-emerald-900/60 via-teal-900/40 to-neutral-950/80 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center p-6">
+              <div class="text-center">
+                <span class="inline-block px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 font-mono text-xs font-semibold mb-3">
+                  Hardware & STEM Lab
+                </span>
+                <h4 class="text-xl sm:text-2xl font-bold text-white max-w-md mx-auto">
+                  Lab BK_FET STEM & Chuỗi Trình Diễn HUST OpenDay
+                </h4>
+                <div class="flex items-center justify-center gap-4 text-xs font-mono text-neutral-300 mt-4">
+                  <span class="flex items-center gap-1"><i data-lucide="cpu" class="w-3.5 h-3.5 text-emerald-400"></i> Phần Cứng & Mạch</span>
+                  <span class="flex items-center gap-1"><i data-lucide="school" class="w-3.5 h-3.5 text-blue-400"></i> THPT & THCS</span>
+                </div>
+              </div>
+            </div>
+            <div class="absolute top-4 right-4 bg-juno-bg/80 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono border border-juno-border">
+              2022 — 2025
+            </div>
+            <div class="absolute bottom-4 left-4 flex gap-2">
+              <span class="px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-white border border-white/10">BK_FET STEM</span>
+              <span class="px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-white border border-white/10">Lab Instructor</span>
+            </div>
+          </div>
+
+          <div class="flex items-baseline justify-between mb-2">
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-mono text-emerald-500 font-semibold">/KỸ THUẬT PHẦN CỨNG</span>
+              <span class="text-juno-subtle">•</span>
+              <span class="text-xs font-mono text-juno-muted">Lab BK_FET STEM</span>
+            </div>
+            <span class="text-xs font-mono text-juno-subtle">HUST OpenDay</span>
+          </div>
+
+          <h3 class="text-xl font-bold text-juno-text group-hover:text-emerald-500 transition-colors mb-2">
+            Hướng Dẫn Thực Hành Thí Nghiệm & Trình Bày Sản Phẩm Điện Tử OpenDay
+          </h3>
+
+          <p class="text-sm text-juno-muted line-clamp-2 font-light mb-4">
+            Đứng lớp hướng dẫn sinh viên thực hành mạch và đo đạc thí nghiệm tại các Lab; đại diện giới thiệu, biểu diễn demo thiết bị điện tử trong ngày hội Openday cho học sinh các trường THCS, THPT.
+          </p>
+
+          <div class="flex items-center justify-between text-xs font-semibold text-juno-text pt-3 border-t border-juno-border/60">
+            <span class="text-emerald-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              Xem chi tiết hoạt động Lab <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </span>
+            <span class="font-mono text-emerald-400">Trường Điện - Điện tử</span>
+          </div>
+        </div>
+
+        <!-- PROJECT 5: CLB Sinh viên NCKH SRC (17K+ Followers) -->
+        <div class="project-card group" data-category="community" onclick="openProjectModal('project-src-club')">
+          <div class="project-img-wrapper relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden bg-neutral-900 border border-juno-border mb-6">
+            <div class="absolute inset-0 bg-gradient-to-tr from-cyan-900/60 via-blue-900/40 to-neutral-950/80 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center p-6">
+              <div class="text-center">
+                <span class="inline-block px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-400/40 text-cyan-300 font-mono text-xs font-semibold mb-3">
+                  Quản Trị Truyền Thông & Chuyên Môn
+                </span>
+                <h4 class="text-xl sm:text-2xl font-bold text-white max-w-md mx-auto">
+                  CLB Sinh Viên NCKH Trường Điện - Điện Tử (SRC - 17K+ Followers)
+                </h4>
+                <div class="flex items-center justify-center gap-4 text-xs font-mono text-neutral-300 mt-4">
+                  <span class="flex items-center gap-1"><i data-lucide="globe" class="w-3.5 h-3.5 text-cyan-400"></i> 17,000+ Followers</span>
+                  <span class="flex items-center gap-1"><i data-lucide="mic" class="w-3.5 h-3.5 text-yellow-400"></i> Tọa Đàm & Hội Thảo</span>
+                </div>
+              </div>
+            </div>
+            <div class="absolute top-4 right-4 bg-juno-bg/80 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono border border-juno-border">
+              2022 — 2025
+            </div>
+            <div class="absolute bottom-4 left-4 flex gap-2">
+              <span class="px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-white border border-white/10">Ban Chuyên Môn</span>
+              <span class="px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-white border border-white/10">Ban Truyền Thông</span>
+            </div>
+          </div>
+
+          <div class="flex items-baseline justify-between mb-2">
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-mono text-cyan-500 font-semibold">/TRUYỀN THÔNG & NCKH</span>
+              <span class="text-juno-subtle">•</span>
+              <span class="text-xs font-mono text-juno-muted">CLB SRC</span>
+            </div>
+            <span class="text-xs font-mono text-juno-subtle">17K+ Followers</span>
+          </div>
+
+          <h3 class="text-xl font-bold text-juno-text group-hover:text-cyan-500 transition-colors mb-2">
+            Vận Hành Truyền Thông Học Thuật & Tổ Chức Tọa Đàm Nghiên Cứu Khoa Học
+          </h3>
+
+          <p class="text-sm text-juno-muted line-clamp-2 font-light mb-4">
+            Quản trị nội dung fanpage SRC 17K+ người theo dõi; định hướng và tổ chức các sự kiện học thuật, workshop chia sẻ phương pháp NCKH cho hàng ngàn sinh viên khối kỹ thuật.
+          </p>
+
+          <div class="flex items-center justify-between text-xs font-semibold text-juno-text pt-3 border-t border-juno-border/60">
+            <span class="text-cyan-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              Xem chi tiết công tác NCKH <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </span>
+            <span class="font-mono text-cyan-400">SRC HUST</span>
+          </div>
+        </div>
+
+        <!-- PROJECT 6: Hoạt Động Đoàn Hội, Thiện Nguyện & Hiến Máu -->
+        <div class="project-card group" data-category="community" onclick="openProjectModal('project-youth-union')">
+          <div class="project-img-wrapper relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden bg-neutral-900 border border-juno-border mb-6">
+            <div class="absolute inset-0 bg-gradient-to-tr from-amber-900/60 via-red-900/40 to-neutral-950/80 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center p-6">
+              <div class="text-center">
+                <span class="inline-block px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 font-mono text-xs font-semibold mb-3">
+                  Hoạt Động Xã Hội & Đoàn Hội
+                </span>
+                <h4 class="text-xl sm:text-2xl font-bold text-white max-w-md mx-auto">
+                  Dự Án Thiện Nguyện, Hiến Máu Nhân Đạo & Tập Huấn Đoàn Hội HUST
+                </h4>
+                <div class="flex items-center justify-center gap-4 text-xs font-mono text-neutral-300 mt-4">
+                  <span class="flex items-center gap-1"><i data-lucide="heart-handshake" class="w-3.5 h-3.5 text-red-400"></i> Hiến Máu & Thiện Nguyện</span>
+                  <span class="flex items-center gap-1"><i data-lucide="award" class="w-3.5 h-3.5 text-amber-400"></i> Tập Huấn Cán Bộ</span>
+                </div>
+              </div>
+            </div>
+            <div class="absolute top-4 right-4 bg-juno-bg/80 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono border border-juno-border">
+              2022 — 2025
+            </div>
+            <div class="absolute bottom-4 left-4 flex gap-2">
+              <span class="px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-white border border-white/10">BCH Đoàn Trường</span>
+              <span class="px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-white border border-white/10">Phó Ban Học Tập</span>
+            </div>
+          </div>
+
+          <div class="flex items-baseline justify-between mb-2">
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-mono text-amber-500 font-semibold">/HOẠT ĐỘNG CỘNG ĐỒNG</span>
+              <span class="text-juno-subtle">•</span>
+              <span class="text-xs font-mono text-juno-muted">Đoàn Trường Điện - Điện tử</span>
+            </div>
+            <span class="text-xs font-mono text-juno-subtle">HUST Volunteer</span>
+          </div>
+
+          <h3 class="text-xl font-bold text-juno-text group-hover:text-amber-500 transition-colors mb-2">
+            Công Tác Đoàn Hội, Điều Phối Tọa Đàm Chuyên Ngành & Hoạt Động Thiện Nguyện
+          </h3>
+
+          <p class="text-sm text-juno-muted line-clamp-2 font-light mb-4">
+            Tham gia và đồng hành tổ chức các chương trình hiến máu nhân đạo, tập huấn kỹ năng cán bộ Đoàn - Hội, các tọa đàm chuyên ngành và phong trào sinh viên Bách Khoa 2022-2025.
+          </p>
+
+          <div class="flex items-center justify-between text-xs font-semibold text-juno-text pt-3 border-t border-juno-border/60">
+            <span class="text-amber-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              Xem chi tiết hoạt động <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </span>
+            <span class="font-mono text-amber-400">Đoàn Thanh Niên</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 4. AWARDS & HONORS (Hall of Fame) -->
+    <!-- ========================================================================= -->
+    <section id="awards" class="mb-28 sm:mb-36">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-juno-border">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-juno-muted">/03 Thành Tích & Vinh Danh</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight uppercase mt-2 text-juno-text">
+            Giải Thưởng & Cuộc Thi Nổi Bật
+          </h2>
+        </div>
+        <p class="text-sm text-juno-muted max-w-md mt-4 md:mt-0 font-light">
+          Các giải thưởng danh giá đạt được qua các cuộc thi sáng tạo công nghệ, truyền thông số và giải pháp học tập thời đại 4.0.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Award 1: SIC Be A Gentech -->
+        <div class="rounded-3xl border border-juno-border bg-juno-card p-6 hover:border-amber-500/50 hover:bg-juno-cardHover transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
+              <i data-lucide="award" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[11px] font-mono text-amber-400 font-semibold tracking-wider uppercase">Giải Ba Toàn Quốc</span>
+            <h3 class="text-lg font-bold text-juno-text mt-2 mb-2 group-hover:text-amber-400 transition-colors">
+              Cuộc thi SIC – Be A Gentech
+            </h3>
+            <p class="text-xs text-juno-muted font-light leading-relaxed">
+              Giải Ba cuộc thi đổi mới sáng tạo công nghệ thế hệ Gen Z, khẳng định tư duy giải pháp công nghệ số và ứng dụng thực tiễn.
+            </p>
+          </div>
+          <div class="pt-4 mt-6 border-t border-juno-border/50 flex justify-between items-center text-[11px] font-mono text-juno-subtle">
+            <span>#Gentech</span>
+            <span>SIC Innovation</span>
+          </div>
+        </div>
+
+        <!-- Award 2: Mot Thoang Bach Khoa -->
+        <div class="rounded-3xl border border-juno-border bg-juno-card p-6 hover:border-blue-500/50 hover:bg-juno-cardHover transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
+              <i data-lucide="film" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[11px] font-mono text-blue-400 font-semibold tracking-wider uppercase">Giải Ba Chung Cuộc</span>
+            <h3 class="text-lg font-bold text-juno-text mt-2 mb-2 group-hover:text-blue-400 transition-colors">
+              Cuộc thi Một Thoáng Bách Khoa
+            </h3>
+            <p class="text-xs text-juno-muted font-light leading-relaxed">
+              Giải Ba cuộc thi sáng tạo video và truyền thông về cuộc sống, con người và văn hóa đậm chất sinh viên Đại học Bách Khoa Hà Nội.
+            </p>
+          </div>
+          <div class="pt-4 mt-6 border-t border-juno-border/50 flex justify-between items-center text-[11px] font-mono text-juno-subtle">
+            <span>#HUST_Vlog</span>
+            <span>ĐHBK Hà Nội</span>
+          </div>
+        </div>
+
+        <!-- Award 3: Giai Truyen Thong 30/4 -->
+        <div class="rounded-3xl border border-juno-border bg-juno-card p-6 hover:border-red-500/50 hover:bg-juno-cardHover transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400 mb-6 group-hover:scale-110 transition-transform">
+              <i data-lucide="megaphone" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[11px] font-mono text-red-400 font-semibold tracking-wider uppercase">Giải Truyền Thông</span>
+            <h3 class="text-lg font-bold text-juno-text mt-2 mb-2 group-hover:text-red-400 transition-colors">
+              Cuộc Thi "Từ Đấu Tranh Đến Chiến Thắng 30/4"
+            </h3>
+            <p class="text-xs text-juno-muted font-light leading-relaxed">
+              Giải thưởng truyền thông xuất sắc về ngày giải phóng Miền Nam thống nhất đất nước, ghi nhận sức lan tỏa nội dung lịch sử tới giới trẻ.
+            </p>
+          </div>
+          <div class="pt-4 mt-6 border-t border-juno-border/50 flex justify-between items-center text-[11px] font-mono text-juno-subtle">
+            <span>#MediaAward</span>
+            <span>Truyền Thông Lịch Sử</span>
+          </div>
+        </div>
+
+        <!-- Award 4: Learn With Tech -->
+        <div class="rounded-3xl border border-juno-border bg-juno-card p-6 hover:border-purple-500/50 hover:bg-juno-cardHover transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-6 group-hover:scale-110 transition-transform">
+              <i data-lucide="zap" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[11px] font-mono text-purple-400 font-semibold tracking-wider uppercase">Giải Nhì</span>
+            <h3 class="text-lg font-bold text-juno-text mt-2 mb-2 group-hover:text-purple-400 transition-colors">
+              Cuộc thi "Learn With Tech"
+            </h3>
+            <p class="text-xs text-juno-muted font-light leading-relaxed">
+              Giải Nhì cuộc thi phương pháp học tập kết hợp công nghệ số và công cụ thông minh, chia sẻ kỹ năng tự học hiệu quả.
+            </p>
+          </div>
+          <div class="pt-4 mt-6 border-t border-juno-border/50 flex justify-between items-center text-[11px] font-mono text-juno-subtle">
+            <span>#LearnWithTech</span>
+            <span>EdTech & Skills</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 5. EXPERIENCE & TIMELINE (Juno Career Highlights) -->
+    <!-- ========================================================================= -->
+    <section id="experience" class="mb-28 sm:mb-36">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-juno-border">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-juno-muted">/04 Hành Trình Phát Triển</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight uppercase mt-2 text-juno-text">
+            Kinh Nghiệm & Dấu Mốc Lãnh Đạo
+          </h2>
+        </div>
+        <p class="text-sm text-juno-muted max-w-md mt-4 md:mt-0 font-light">
+          Quá trình tôi luyện liên tục từ vị trí cán bộ Đoàn Hội, thành viên phòng thí nghiệm nghiên cứu đến Đại sứ Sinh viên công nghệ Google.
+        </p>
+      </div>
+
+      <!-- Juno Minimalist Timeline List -->
+      <div class="divide-y divide-juno-border border-y border-juno-border">
+        
+        <!-- Role 1 -->
+        <div class="py-8 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline hover:bg-juno-card/40 px-4 -mx-4 rounded-xl transition-colors">
+          <div class="md:col-span-3 text-xs font-mono text-blue-400 font-semibold flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span> 2024 — Hiện tại
+          </div>
+          <div class="md:col-span-5">
+            <h3 class="text-lg font-bold text-juno-text">Đại Sứ Sinh Viên Google – Gemini Việt Nam (Mùa 1)</h3>
+            <p class="text-xs font-mono text-juno-muted mt-1">Google AI Vietnam & Mạng lưới Đông Nam Á (Indonesia, Singapore)</p>
+          </div>
+          <div class="md:col-span-4 text-xs text-juno-muted font-light leading-relaxed">
+            Đứng lớp, truyền thông và đào tạo kỹ năng ứng dụng Google Gemini AI; Technique Manager điều phối kỹ thuật các workshop 1.500+ sinh viên; kết nối hợp tác các đại sứ khu vực.
+          </div>
+        </div>
+
+        <!-- Role 2 -->
+        <div class="py-8 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline hover:bg-juno-card/40 px-4 -mx-4 rounded-xl transition-colors">
+          <div class="md:col-span-3 text-xs font-mono text-emerald-400 font-semibold flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> 2022 — 2025
+          </div>
+          <div class="md:col-span-5">
+            <h3 class="text-lg font-bold text-juno-text">Phó Ban Học Tập – BCH Đoàn Thanh Niên Trường Điện - Điện Tử</h3>
+            <p class="text-xs font-mono text-juno-muted mt-1">Đại học Bách Khoa Hà Nội</p>
+          </div>
+          <div class="md:col-span-4 text-xs text-juno-muted font-light leading-relaxed">
+            Chủ trì và điều phối hoạt động học thuật, tổ chức các tọa đàm chuyên ngành, hội thảo định hướng sinh viên, tham gia tập huấn cán bộ Đoàn - Hội và các chiến dịch thiện nguyện, hiến máu.
+          </div>
+        </div>
+
+        <!-- Role 3 -->
+        <div class="py-8 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline hover:bg-juno-card/40 px-4 -mx-4 rounded-xl transition-colors">
+          <div class="md:col-span-3 text-xs font-mono text-purple-400 font-semibold flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span> 2022 — 2025
+          </div>
+          <div class="md:col-span-5">
+            <h3 class="text-lg font-bold text-juno-text">Thành Viên Lab BK_FET STEM & Ban Chuyên Môn SRC (17K fl)</h3>
+            <p class="text-xs font-mono text-juno-muted mt-1">Trường Điện - Điện tử, ĐHBK Hà Nội</p>
+          </div>
+          <div class="md:col-span-4 text-xs text-juno-muted font-light leading-relaxed">
+            Hướng dẫn sinh viên thực hành môn học tại Lab, biểu diễn sản phẩm phần cứng OpenDay cho học sinh phổ thông; quản lý truyền thông fanpage CLB NCKH SRC với hơn 17.000 followers.
+          </div>
+        </div>
+
+        <!-- Role 4 -->
+        <div class="py-8 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline hover:bg-juno-card/40 px-4 -mx-4 rounded-xl transition-colors">
+          <div class="md:col-span-3 text-xs font-mono text-pink-400 font-semibold flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-pink-400"></span> 2023 — 2024
+          </div>
+          <div class="md:col-span-5">
+            <h3 class="text-lg font-bold text-juno-text">Đại Sứ Truyền Thông EPI</h3>
+            <p class="text-xs font-mono text-juno-muted mt-1">EPI Media & Technology Network</p>
+          </div>
+          <div class="md:col-span-4 text-xs text-juno-muted font-light leading-relaxed">
+            Đại diện thương hiệu, lan tỏa các thông điệp công nghệ, giáo dục và kết nối các chương trình trải nghiệm kỹ thuật số cho cộng đồng sinh viên.
+          </div>
+        </div>
+
+        <!-- Role 5 -->
+        <div class="py-8 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline hover:bg-juno-card/40 px-4 -mx-4 rounded-xl transition-colors">
+          <div class="md:col-span-3 text-xs font-mono text-neutral-400 font-semibold flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-neutral-400"></span> 2021 — 2025
+          </div>
+          <div class="md:col-span-5">
+            <h3 class="text-lg font-bold text-juno-text">Kỹ Thuật Điện Tử – Viễn Thông</h3>
+            <p class="text-xs font-mono text-juno-muted mt-1">Đại học Bách Khoa Hà Nội (Tốt nghiệp)</p>
+          </div>
+          <div class="md:col-span-4 text-xs text-juno-muted font-light leading-relaxed">
+            Hoàn thành chương trình kỹ sư chính quy ngành Kỹ thuật Điện tử - Viễn thông, xây dựng nền tảng vững chắc về mạch điện tử, xử lý tín hiệu, lập trình nhúng và hệ thống truyền thông.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 6. EXPERTISE & SERVICES (Juno Numbered /01 - /04) -->
+    <!-- ========================================================================= -->
+    <section id="expertise" class="mb-28 sm:mb-36">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-juno-border">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-juno-muted">/05 Năng Lực Cốt Lõi</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight uppercase mt-2 text-juno-text">
+            Lĩnh Vực Chuyên Môn & Đóng Góp
+          </h2>
+        </div>
+        <p class="text-sm text-juno-muted max-w-md mt-4 md:mt-0 font-light">
+          Sẵn sàng đồng hành cùng các tổ chức, câu lạc bộ, doanh nghiệp và cộng đồng sinh viên trong các dự án đào tạo AI và sự kiện công nghệ.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Expertise 1 -->
+        <div class="p-8 rounded-3xl border border-juno-border bg-juno-card flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-6">
+              <span class="text-2xl font-black font-mono text-blue-500">/01</span>
+              <span class="px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-400 font-mono text-xs">AI & Generative Tech</span>
+            </div>
+            <h3 class="text-2xl font-bold text-juno-text mb-3">Google AI, Prompting & Ứng Dụng Thực Chiến</h3>
+            <p class="text-sm text-juno-muted font-light leading-relaxed mb-6">
+              Chuyên gia đứng lớp và xây dựng quy trình ứng dụng Google Gemini AI vào nghiên cứu khoa học, tối ưu hóa mã nguồn lập trình, tự động hóa quản trị câu lạc bộ và xây dựng thương hiệu cá nhân bằng AI.
+            </p>
+          </div>
+          <ul class="space-y-2 text-xs text-juno-text border-t border-juno-border/50 pt-4 font-mono">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-blue-500"></i> Quy trình 6 bước phản biện logic code với Gemini</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-blue-500"></i> Prompt Engineering cho NCKH & Học thuật</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-blue-500"></i> Workshop & Diễn giả đào tạo sinh viên</li>
+          </ul>
+        </div>
+
+        <!-- Expertise 2 -->
+        <div class="p-8 rounded-3xl border border-juno-border bg-juno-card flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-6">
+              <span class="text-2xl font-black font-mono text-emerald-500">/02</span>
+              <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 font-mono text-xs">Hardware & STEM</span>
+            </div>
+            <h3 class="text-2xl font-bold text-juno-text mb-3">Kỹ Thuật Điện Tử, Viễn Thông & Mentoring STEM</h3>
+            <p class="text-sm text-juno-muted font-light leading-relaxed mb-6">
+              Nền tảng kỹ sư Bách Khoa vững vàng với kinh nghiệm hướng dẫn thực nghiệm vi mạch, thiết bị đo lường và phát triển chương trình STEM trải nghiệm cho các thế hệ học sinh, sinh viên.
+            </p>
+          </div>
+          <ul class="space-y-2 text-xs text-juno-text border-t border-juno-border/50 pt-4 font-mono">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500"></i> Hướng dẫn thực hành Lab chuyên ngành</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500"></i> Demo sản phẩm công nghệ OpenDay HUST</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500"></i> Đào tạo tư duy phần cứng & STEM thế hệ mới</li>
+          </ul>
+        </div>
+
+        <!-- Expertise 3 -->
+        <div class="p-8 rounded-3xl border border-juno-border bg-juno-card flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-6">
+              <span class="text-2xl font-black font-mono text-purple-500">/03</span>
+              <span class="px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-400 font-mono text-xs">Tech Operations</span>
+            </div>
+            <h3 class="text-2xl font-bold text-juno-text mb-3">Quản Trị Kỹ Thuật Sự Kiện (Technique Manager)</h3>
+            <p class="text-sm text-juno-muted font-light leading-relaxed mb-6">
+              Xây dựng kịch bản vận hành kỹ thuật, phương án dự phòng hạ tầng âm thanh, hình ảnh, đường truyền trực tuyến cho các sự kiện quy mô từ 500 đến 1.500+ người tham dự.
+            </p>
+          </div>
+          <ul class="space-y-2 text-xs text-juno-text border-t border-juno-border/50 pt-4 font-mono">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-500"></i> Quản trị rủi ro kỹ thuật & kịch bản backup</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-500"></i> Vận hành Hybrid Event (Offline + Livestream)</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-500"></i> Điều phối nhân sự kỹ thuật hội trường lớn</li>
+          </ul>
+        </div>
+
+        <!-- Expertise 4 -->
+        <div class="p-8 rounded-3xl border border-juno-border bg-juno-card flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-6">
+              <span class="text-2xl font-black font-mono text-pink-500">/04</span>
+              <span class="px-2.5 py-1 rounded-full bg-pink-500/10 text-pink-400 font-mono text-xs">Media & Creator</span>
+            </div>
+            <h3 class="text-2xl font-bold text-juno-text mb-3">Sáng Tạo Nội Dung & Truyền Thông Số Cho Giới Trẻ</h3>
+            <p class="text-sm text-juno-muted font-light leading-relaxed mb-6">
+              Kỹ năng kể chuyện trực quan qua video ngắn (Short-form video), quản lý kênh mạng xã hội, định vị thương hiệu cá nhân và xây dựng cộng đồng sinh viên công nghệ trung thành.
+            </p>
+          </div>
+          <ul class="space-y-2 text-xs text-juno-text border-t border-juno-border/50 pt-4 font-mono">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-pink-500"></i> Sản xuất Video TikTok 31.1K+ lượt thích</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-pink-500"></i> Quản trị Fanpage NCKH SRC 17K+ followers</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-pink-500"></i> Truyền thông sự kiện và chiến dịch giới trẻ</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 7. TESTIMONIALS & COMMUNITY IMPACT (Juno Quotes) -->
+    <!-- ========================================================================= -->
+    <section class="mb-28 sm:mb-36">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-juno-border">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-juno-muted">/06 Phản Hồi & Đánh Giá</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight uppercase mt-2 text-juno-text">
+            Tác Động Đến Người Tham Dự
+          </h2>
+        </div>
+        <p class="text-sm text-juno-muted max-w-md mt-4 md:mt-0 font-light">
+          Những đánh giá chân thực (4.5 - 4.9⭐) từ sinh viên và đối tác sau khi tham gia các buổi chia sẻ và workshop.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="p-8 rounded-3xl border border-juno-border bg-juno-card/60 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex text-yellow-400 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <p class="text-sm text-juno-muted italic leading-relaxed font-light">
+              "Quy trình 6 bước sử dụng Gemini như một Senior Developer đã thay đổi hoàn toàn cách mình debug code. Đức chia sẻ cực kỳ thực tế, dễ áp dụng ngay cho đồ án môn học!"
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-juno-border/50 flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 font-bold flex items-center justify-center text-xs">SV</div>
+            <div>
+              <div class="text-xs font-bold text-juno-text">Sinh viên CNTT — ĐHBK Hà Nội</div>
+              <div class="text-[10px] font-mono text-juno-subtle">Workshop Tối ưu Mã Nguồn (1.580+ người)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-8 rounded-3xl border border-juno-border bg-juno-card/60 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex text-yellow-400 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <p class="text-sm text-juno-muted italic leading-relaxed font-light">
+              "Workshop 'Lãnh đạo Gen Z: Tối ưu vận hành CLB với Gemini' đã giúp ban điều hành chúng mình tiết kiệm hơn 50% thời gian soạn thảo kế hoạch và truyền thông sự kiện."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-juno-border/50 flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-purple-500/20 text-purple-400 font-bold flex items-center justify-center text-xs">CLB</div>
+            <div>
+              <div class="text-xs font-bold text-juno-text">Chủ nhiệm CLB Sinh Viên</div>
+              <div class="text-[10px] font-mono text-juno-subtle">Chuỗi Workshop Lãnh Đạo Gen Z</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-8 rounded-3xl border border-juno-border bg-juno-card/60 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex text-yellow-400 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <p class="text-sm text-juno-muted italic leading-relaxed font-light">
+              "Theo dõi kênh TikTok của Đức từ năm nhất, những video hướng dẫn thực tập, review cuộc thi và chia sẻ cuộc sống Bách Khoa chân thực đã truyền rất nhiều động lực cho mình!"
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-juno-border/50 flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-pink-500/20 text-pink-400 font-bold flex items-center justify-center text-xs">TT</div>
+            <div>
+              <div class="text-xs font-bold text-juno-text">TikTok Follower & Sinh Viên</div>
+              <div class="text-[10px] font-mono text-juno-subtle">Kênh @hust_my_dream</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 8. FAQ ACCORDION (Juno Style) -->
+    <!-- ========================================================================= -->
+    <section id="faq" class="mb-28 sm:mb-36">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-juno-border">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-juno-muted">/07 Hỏi & Đáp Thường Gặp</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight uppercase mt-2 text-juno-text">
+            Ask Me Anything
+          </h2>
+        </div>
+        <p class="text-sm text-juno-muted max-w-md mt-4 md:mt-0 font-light">
+          Giải đáp các câu hỏi thường gặp về việc mời diễn giả, tổ chức workshop AI, hợp tác truyền thông và dự án kỹ thuật.
+        </p>
+      </div>
+
+      <div class="divide-y divide-juno-border border-y border-juno-border max-w-4xl mx-auto">
+        
+        <!-- FAQ 1 -->
+        <div class="faq-item py-6">
+          <button class="faq-question w-full flex items-center justify-between text-left font-bold text-base sm:text-lg text-juno-text hover:text-red-500 transition-colors">
+            <span>01/ Tôi có thể mời Đức làm Diễn giả / Trainer cho Workshop Google Gemini AI không?</span>
+            <i data-lucide="plus" class="faq-icon w-5 h-5 text-juno-subtle shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden pt-4 text-sm text-juno-muted font-light leading-relaxed">
+            Hoàn toàn có thể! Đức thường xuyên nhận lời mời đứng lớp, chia sẻ chuyên đề về ứng dụng Google Gemini AI trong NCKH, viết code, tối ưu vận hành tổ chức hoặc làm Technique Manager quản trị kỹ thuật cho các sự kiện trường học, CLB và doanh nghiệp.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item py-6">
+          <button class="faq-question w-full flex items-center justify-between text-left font-bold text-base sm:text-lg text-juno-text hover:text-red-500 transition-colors">
+            <span>02/ Kênh TikTok @hust_my_dream có nhận hợp tác truyền thông giáo dục không?</span>
+            <i data-lucide="plus" class="faq-icon w-5 h-5 text-juno-subtle shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden pt-4 text-sm text-juno-muted font-light leading-relaxed">
+            Có! Đức sẵn sàng hợp tác truyền thông cho các cuộc thi học thuật, chương trình học bổng, sự kiện công nghệ, công cụ học tập số hoặc các sản phẩm giáo dục mang lại giá trị tích cực và thực chất cho cộng đồng sinh viên.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item py-6">
+          <button class="faq-question w-full flex items-center justify-between text-left font-bold text-base sm:text-lg text-juno-text hover:text-red-500 transition-colors">
+            <span>03/ Đức có thể hỗ trợ tư vấn phương pháp NCKH hoặc thực hành Lab phần cứng không?</span>
+            <i data-lucide="plus" class="faq-icon w-5 h-5 text-juno-subtle shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden pt-4 text-sm text-juno-muted font-light leading-relaxed">
+            Với kinh nghiệm tại Lab BK_FET STEM và Ban Chuyên môn CLB NCKH SRC, Đức luôn sẵn lòng hỗ trợ định hướng đề tài, cách tìm kiếm tài liệu học thuật bằng AI và phương pháp thí nghiệm mạch điện tử cho các bạn sinh viên khóa dưới.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item py-6">
+          <button class="faq-question w-full flex items-center justify-between text-left font-bold text-base sm:text-lg text-juno-text hover:text-red-500 transition-colors">
+            <span>04/ Thời gian phản hồi liên hệ hợp tác thường mất bao lâu?</span>
+            <i data-lucide="plus" class="faq-icon w-5 h-5 text-juno-subtle shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden pt-4 text-sm text-juno-muted font-light leading-relaxed">
+            Đức thường phản hồi tin nhắn Facebook, LinkedIn hoặc Email trong vòng 12-24 giờ làm việc. Với các lời mời sự kiện gấp, bạn có thể nhắn tin trực tiếp qua Facebook cá nhân để được hỗ trợ nhanh nhất.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 9. CONTACT & FOOTER (Juno Get In Touch) -->
+    <!-- ========================================================================= -->
+    <section id="contact" class="mb-12">
+      <div class="p-8 sm:p-14 rounded-3xl border border-juno-border bg-juno-card relative overflow-hidden">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+          <!-- Contact Left: Bio & Direct Socials -->
+          <div class="lg:col-span-6 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-3.5 mb-4">
+                <div class="w-12 h-12 rounded-2xl overflow-hidden border border-juno-border shadow-md shrink-0 bg-neutral-800">
+                  <img src="avatar.jpg" alt="Đào Quang Đức" class="w-full h-full object-cover object-top scale-105">
+                </div>
+                <div>
+                  <span class="text-xs font-mono uppercase tracking-widest text-red-500 font-semibold block">/08 Hãy Kết Nối</span>
+                  <span class="text-xs font-mono text-juno-muted">Đào Quang Đức • HUST & Google Gemini Ambassador</span>
+                </div>
+              </div>
+              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight uppercase mb-4 text-juno-text leading-tight">
+                Bắt Đầu Một Dự Án Hoặc Buổi Chia Sẻ Mới
+              </h2>
+              <p class="text-sm text-juno-muted font-light leading-relaxed mb-8">
+                Tôi luôn hào hứng kết nối với các bạn sinh viên, ban tổ chức sự kiện, câu lạc bộ và các tổ chức công nghệ để cùng nhau tạo ra những workshop bùng nổ và lan tỏa giá trị tri thức.
+              </p>
+
+              <!-- Quick Info List -->
+              <div class="space-y-3 text-xs font-mono text-juno-muted mb-8">
+                <div class="flex items-center gap-3">
+                  <i data-lucide="map-pin" class="w-4 h-4 text-red-500"></i>
+                  <span>Quê quán: Xã Nguyễn Bỉnh Khiêm, Hải Phòng • Hiện tại: Hà Nội</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <i data-lucide="graduation-cap" class="w-4 h-4 text-blue-500"></i>
+                  <span>Tốt nghiệp Kỹ sư Điện tử - Viễn thông, ĐHBK Hà Nội</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <i data-lucide="mail" class="w-4 h-4 text-purple-500"></i>
+                  <span id="copy-email-text" class="cursor-pointer hover:text-juno-text transition-colors" onclick="copyEmail()">quangduc.hust.official@gmail.com (Click để copy)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Badges Grid -->
+            <div class="grid grid-cols-2 gap-3 pt-6 border-t border-juno-border/50">
+              <a href="https://www.facebook.com/quangducinhust2k4/" target="_blank" rel="noopener" class="flex items-center justify-between p-3 rounded-xl border border-juno-border hover:border-blue-500 bg-juno-bg transition-colors text-xs font-medium">
+                <span class="flex items-center gap-2"><i data-lucide="facebook" class="w-4 h-4 text-blue-500"></i> Facebook</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-juno-subtle"></i>
+              </a>
+
+              <a href="https://www.linkedin.com/in/%C4%91%C3%A0o-quang-%C4%91%E1%BB%A9c-8582a4209" target="_blank" rel="noopener" class="flex items-center justify-between p-3 rounded-xl border border-juno-border hover:border-blue-400 bg-juno-bg transition-colors text-xs font-medium">
+                <span class="flex items-center gap-2"><i data-lucide="linkedin" class="w-4 h-4 text-blue-400"></i> LinkedIn</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-juno-subtle"></i>
+              </a>
+
+              <a href="https://www.tiktok.com/@hust_my_dream" target="_blank" rel="noopener" class="flex items-center justify-between p-3 rounded-xl border border-juno-border hover:border-pink-500 bg-juno-bg transition-colors text-xs font-medium">
+                <span class="flex items-center gap-2"><i data-lucide="video" class="w-4 h-4 text-pink-500"></i> TikTok</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-juno-subtle"></i>
+              </a>
+
+              <button onclick="copyEmail()" class="flex items-center justify-between p-3 rounded-xl border border-juno-border hover:border-emerald-500 bg-juno-bg transition-colors text-xs font-medium text-left">
+                <span class="flex items-center gap-2"><i data-lucide="copy" class="w-4 h-4 text-emerald-500"></i> Sao chép Email</span>
+                <i data-lucide="check" class="w-3.5 h-3.5 text-juno-subtle"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Contact Right: Interactive Form -->
+          <div class="lg:col-span-6 bg-juno-bg/80 border border-juno-border rounded-2xl p-6 sm:p-8 backdrop-blur-sm">
+            <h3 class="text-xl font-bold text-juno-text mb-2">Gửi Tin Nhắn Trực Tiếp</h3>
+            <p class="text-xs text-juno-muted mb-6 font-light">Điền thông tin bên dưới, Đức sẽ nhận được thông báo và phản hồi sớm nhất.</p>
+
+            <form id="contact-form" class="space-y-4">
+              <div>
+                <label class="block text-xs font-mono uppercase text-juno-muted mb-1">Họ & Tên *</label>
+                <input type="text" id="form-name" required placeholder="Nguyễn Văn A" class="w-full px-4 py-2.5 rounded-xl border border-juno-border bg-juno-card text-juno-text text-sm focus:outline-none focus:border-red-500 transition-colors">
+              </div>
+
+              <div>
+                <label class="block text-xs font-mono uppercase text-juno-muted mb-1">Email / Số Điện Thoại *</label>
+                <input type="text" id="form-email" required placeholder="contact@example.com hoặc 0987xxx" class="w-full px-4 py-2.5 rounded-xl border border-juno-border bg-juno-card text-juno-text text-sm focus:outline-none focus:border-red-500 transition-colors">
+              </div>
+
+              <div>
+                <label class="block text-xs font-mono uppercase text-juno-muted mb-1">Mục Đích Liên Hệ</label>
+                <select id="form-subject" class="w-full px-4 py-2.5 rounded-xl border border-juno-border bg-juno-card text-juno-text text-sm focus:outline-none focus:border-red-500 transition-colors">
+                  <option value="workshop">Mời Diễn Giả / Trainer Workshop Google Gemini AI</option>
+                  <option value="tech-manager">Hợp tác Quản trị Kỹ thuật Sự kiện (Technique Manager)</option>
+                  <option value="tiktok-collab">Hợp tác Truyền thông Kênh TikTok / Fanpage SRC</option>
+                  <option value="stem-consulting">Tư vấn Học tập Bách Khoa / Lab STEM</option>
+                  <option value="other">Ý kiến khác</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-mono uppercase text-juno-muted mb-1">Nội Dung Tin Nhắn *</label>
+                <textarea id="form-message" rows="4" required placeholder="Hãy mô tả ngắn gọn về sự kiện hoặc ý tưởng hợp tác của bạn..." class="w-full px-4 py-2.5 rounded-xl border border-juno-border bg-juno-card text-juno-text text-sm focus:outline-none focus:border-red-500 transition-colors resize-none"></textarea>
+              </div>
+
+              <button type="submit" id="submit-btn" class="w-full py-3 rounded-xl bg-juno-text text-juno-bg font-bold text-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-2 shadow-lg">
+                <i data-lucide="send" class="w-4 h-4"></i>
+                <span>Gửi Tin Nhắn Ngay</span>
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="pt-8 border-t border-juno-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-juno-subtle">
+      <div class="flex items-center gap-2">
+        <span>© 2026 Đào Quang Đức. All rights reserved.</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span>HUST • Điện tử Viễn thông</span>
+        <span>•</span>
+        <span>Google Gemini Ambassador</span>
+        <span>•</span>
+        <a href="#hero" class="hover:text-juno-text transition-colors flex items-center gap-1">Lên đầu trang <i data-lucide="arrow-up" class="w-3 h-3"></i></a>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- INTERACTIVE PROJECT MODAL (Juno Detail Overlay) -->
+  <!-- ========================================================================= -->
+  <div id="project-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md overflow-y-auto">
+    <div class="relative w-full max-w-3xl rounded-3xl border border-juno-border bg-juno-card p-6 sm:p-10 shadow-2xl my-8 transition-all">
+      
+      <!-- Close Button -->
+      <button onclick="closeProjectModal()" class="absolute top-6 right-6 p-2 rounded-full border border-juno-border hover:bg-juno-bg text-juno-muted hover:text-juno-text transition-all">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div id="modal-content">
+        <!-- Injected via JavaScript dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 hidden items-center gap-3 px-5 py-3 rounded-2xl bg-emerald-600 text-white font-medium text-xs shadow-2xl border border-emerald-400/30 transition-all">
+    <i data-lucide="check-circle" class="w-4 h-4"></i>
+    <span id="toast-message">Nội dung thông báo</span>
+  </div>
+
+  <!-- Lucide Icon Initialization & Main Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>

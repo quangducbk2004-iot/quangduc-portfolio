@@ -1,0 +1,141 @@
+/* JUNO PORTFOLIO DESIGN SYSTEM & TOKENS */
+
+:root {
+  /* LIGHT THEME TOKENS */
+  --juno-bg: #f9f9f9;
+  --juno-card: #ffffff;
+  --juno-card-hover: #f3f3f3;
+  --juno-border: rgba(0, 0, 0, 0.08);
+  --juno-border-hover: rgba(0, 0, 0, 0.2);
+  --juno-text: #161616;
+  --juno-muted: #666666;
+  --juno-subtle: #8a8a8a;
+  --juno-accent: #ed2525;
+}
+
+html.dark {
+  /* DARK THEME TOKENS (Default Juno High-Contrast Dark) */
+  --juno-bg: #0d0d0d;
+  --juno-card: #151515;
+  --juno-card-hover: #1b1b1b;
+  --juno-border: rgba(255, 255, 255, 0.08);
+  --juno-border-hover: rgba(255, 255, 255, 0.25);
+  --juno-text: #f5f5f5;
+  --juno-muted: #999999;
+  --juno-subtle: #666666;
+  --juno-accent: #ed2525;
+}
+
+/* BASE STYLING */
+body {
+  font-family: 'Geist', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+  letter-spacing: -0.01em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.03em;
+}
+
+/* JUNO SOCIAL PILL */
+.juno-social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid var(--juno-border);
+  background: var(--juno-card);
+  font-size: 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--juno-muted);
+  transition: all 0.2s ease;
+}
+
+.juno-social-pill:hover {
+  border-color: var(--juno-border-hover);
+  color: var(--juno-text);
+  transform: translateY(-1px);
+}
+
+/* JUNO FILTER BUTTONS */
+.filter-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid var(--juno-border);
+  background: var(--juno-card);
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--juno-muted);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.filter-btn:hover {
+  border-color: var(--juno-border-hover);
+  color: var(--juno-text);
+}
+
+.filter-btn.active {
+  background: var(--juno-text);
+  color: var(--juno-bg);
+  border-color: var(--juno-text);
+}
+
+/* PROJECT CARD */
+.project-card {
+  cursor: pointer;
+}
+
+.project-img-wrapper {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:hover .project-img-wrapper {
+  border-color: var(--juno-border-hover);
+  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.3);
+}
+
+/* ACCORDION FAQ */
+.faq-question {
+  cursor: pointer;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+  color: var(--juno-accent);
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* SMOOTH SCROLL BEHAVIOR */
+html {
+  scroll-behavior: smooth;
+}
+
+/* CUSTOM SCROLLBAR */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--juno-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--juno-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--juno-subtle);
+}
