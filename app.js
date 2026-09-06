@@ -5,7 +5,7 @@ const projectDatabase = {
   'project-code-optimization': {
     title: 'Workshop: Ứng dụng Gemini trong Tối ưu hóa Mã nguồn & Kiểm thử Phần mềm',
     badge: 'Google Student Ambassador Project',
-    year: '2024',
+    year: '2026',
     role: 'Technique Manager & Technical Director',
     reach: '1,320 Offline + 260 Online (Tổng 1,580+ Sinh viên)',
     rating: '4.28 / 5.0 ⭐ (82% Sẵn sàng lan tỏa kiến thức)',
@@ -20,7 +20,7 @@ const projectDatabase = {
   'project-gemini-series': {
     title: 'Chuỗi Workshop Google Gemini for Students (4 Chuyên Đề Đột Phá)',
     badge: 'Chuỗi Workshop Đào Tạo Sinh Viên',
-    year: '2024',
+    year: '2026',
     role: 'Diễn giả & Trưởng Ban Tổ Chức',
     reach: '500+ Sinh viên Bách Khoa & Các Trường ĐH Lân Cận',
     rating: '4.5 – 4.9 / 5.0 ⭐ (Tốt - Xuất sắc)',
@@ -52,9 +52,9 @@ const projectDatabase = {
     tags: ['TikTok Creator', 'HUST Life', 'Tech Vlogging', 'Video Awards', '31.1K Likes']
   },
   'project-stem-lab': {
-    title: 'Lab BK_FET STEM & Triển Lãm Kỹ Thuật HUST OpenDay',
+    title: 'Lab BK_FET & Triển Lãm Kỹ Thuật HUST OpenDay',
     badge: 'Hardware Engineering & STEM Lab',
-    year: '2022 — 2025',
+    year: '01/10/2023 — Hiện tại',
     role: 'Thành viên Lab & Giảng viên Thực hành',
     reach: 'Hàng trăm học sinh THPT/THCS & Sinh viên Trường Điện',
     rating: 'Hoạt động thường niên uy tín',
@@ -69,7 +69,7 @@ const projectDatabase = {
   'project-src-club': {
     title: 'Ban Chuyên Môn & Truyền Thông CLB Sinh Viên NCKH SRC (17K+ Followers)',
     badge: 'Học Thuật & Quản Trị Truyền Thông',
-    year: '2022 — 2025',
+    year: '08/10/2022 — 26/05/2026',
     role: 'Thành viên Ban Chuyên Môn & Ban Truyền Thông',
     reach: '17,000+ Người theo dõi Fanpage & Sinh viên ĐHBK',
     rating: 'CLB NCKH hàng đầu Trường Điện - Điện tử',
