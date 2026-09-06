@@ -156,6 +156,29 @@ function openProjectModal(projectId) {
         </ul>
       </div>
 
+      ${(projectId === 'project-youth-union' || projectId === 'project-src-club') ? `
+      <div class="pt-2">
+        <div class="flex items-center justify-between mb-2.5">
+          <h4 class="text-xs font-mono uppercase tracking-wider text-amber-500 flex items-center gap-1.5">
+            <i data-lucide="image" class="w-3.5 h-3.5"></i> /HÌNH ẢNH HOẠT ĐỘNG THỰC TẾ
+          </h4>
+          <a href="#gallery" onclick="closeProjectModal()" class="text-xs font-mono text-amber-400 hover:underline flex items-center gap-1">
+            Xem toàn bộ 17 ảnh <i data-lucide="arrow-right" class="w-3 h-3"></i>
+          </a>
+        </div>
+        <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
+          ${doanHoiPhotos.slice(0, 6).map((photo, i) => `
+            <div class="aspect-square rounded-xl overflow-hidden border border-juno-border hover:border-amber-500 cursor-pointer transition-all hover:scale-105 relative group" onclick="closeProjectModal(); document.getElementById('gallery').scrollIntoView({behavior:'smooth'}); goToGallerySlide(${i});">
+              <img src="${photo.src}" alt="${photo.caption}" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-[10px] font-mono">
+                #${i+1}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+      ` : ''}
+
       <div class="pt-4 border-t border-juno-border flex flex-wrap items-center justify-between gap-4">
         <div class="flex flex-wrap gap-2 text-[11px] font-mono text-juno-subtle">
           ${data.tags.map(tag => `<span class="px-2 py-0.5 rounded bg-juno-bg border border-juno-border">#${tag}</span>`).join('')}
@@ -365,3 +388,249 @@ function showToast(message) {
     toast.classList.remove('flex');
   }, 4000);
 }
+
+// =========================================================================
+// 10. ĐOÀN HỘI & CLB PHOTO GALLERY CAROUSEL LOGIC (17 IMAGES)
+// =========================================================================
+const doanHoiPhotos = [
+  {
+    src: 'assets/doan-hoi/doan-hoi-17.jpg',
+    caption: 'Đào Quang Đức — Phó Ban Học Tập BCH Đoàn Trường Điện - Điện Tử ĐHBK Hà Nội',
+    tag: 'Phó Ban Học Tập Đoàn Trường'
+  },
+  {
+    src: 'assets/doan-hoi/doan-hoi-04.jpg',
+    caption: 'BCH Đoàn Thanh niên Trường Điện - Điện tử trong kỳ đại hội Đoàn cấp trường',
+    tag: 'Đại Hội Đoàn TN HUST'
+  },
+  {
+    src: 'assets/doan-hoi/doan-hoi-05.jpg',
+    caption: 'Ban Chấp hành Đoàn trường Điện - Điện tử tham gia sự kiện truyền thông & hoạt động thanh niên',
+    tag: 'BCH Đoàn Trường Điện'
+  },
+  {
+    src: 'assets/doan-hoi/doan-hoi-02.jpg',
+    caption: 'Lễ tổng kết công tác Đoàn - Hội & Tuyên dương cán bộ Đoàn tiêu biểu ĐHBK Hà Nội',
+    tag: 'Tổng Kết & Tuyên Dương'
+  },
+  {
+    src: 'assets/doan-hoi/doan-hoi-03.jpg',
+    caption: 'Tọa đàm học thuật & Định hướng nghiên cứu khoa học cho sinh viên khối kỹ thuật',
+    tag: 'Tọa Đàm Học Thuật'
+  },
+  {
+    src: 'assets/doan-hoi/doan-hoi-01.jpg',
+    caption: 'Chương trình giao lưu & kết nối phong trào sinh viên Bách Khoa các khóa',
+    tag: 'Phong Trào Sinh Viên'
+  },
+  {
+    src: 'assets/doan-hoi/doan-hoi-06.jpg',
+    caption: 'Hoạt động giao lưu, tập huấn cán bộ Đoàn - Hội và phát triển kỹ năng mềm',
+    tag: 'Tập Huấn Cán Bộ Đoàn'
+  },
+  {
+    src: 'assets/doan-hoi/doan-hoi-07.jpg',
+    caption: 'Tham gia ngày hội HUST OpenDay: Giới thiệu và thuyết minh sản phẩm công nghệ điện tử',
+    tag: 'HUST OpenDay'
+  },
+  {
+    src: 'assets/doan-hoi/doan-hoi-08.jpg',
+    caption: 'Đại biểu tham gia chương trình tập huấn kỹ năng lãnh đạo thanh niên Bách Khoa',
+    tag: 'Lãnh Đạo Thanh Niên'
+  },
+  {
+    src: 'assets/doan-hoi/doan-hoi-09.jpg',
+    caption: 'Chiến dịch thiện nguyện & Hiến máu nhân đạo sinh viên Bách Khoa',
+    tag: 'Hiến Máu Tình Nguyện'
+  },
+  {
+    src: 'assets/doan-hoi/doan-hoi-10.jpg',
+    caption: 'Hội nghị học tốt & Diễn đàn chia sẻ phương pháp học tập hiệu quả Trường Điện',
+    tag: 'Hội Nghị Học Tốt'
+  },
+  {
+    src: 'assets/doan-hoi/doan-hoi-11.jpg',
+    caption: 'Đồng hành và hỗ trợ sinh viên trong các kỳ thi học thuật và nghiên cứu khoa học',
+    tag: 'Hỗ Trợ Sinh Viên'
+  },
+  {
+    src: 'assets/doan-hoi/doan-hoi-12.jpg',
+    caption: 'Đoàn trường Điện - Điện tử tham gia các phong trào thi đua thanh niên xung kích',
+    tag: 'Thanh Niên Xung Kích'
+  },
+  {
+    src: 'assets/doan-hoi/doan-hoi-13.jpg',
+    caption: 'Ban chuyên môn & Truyền thông CLB Sinh viên NCKH SRC (17K+ Followers)',
+    tag: 'CLB NCKH SRC'
+  },
+  {
+    src: 'assets/doan-hoi/doan-hoi-14.jpg',
+    caption: 'Hoạt động ngoại khóa & Gắn kết các thành viên câu lạc bộ nghiên cứu khoa học',
+    tag: 'Sinh Hoạt CLB SRC'
+  },
+  {
+    src: 'assets/doan-hoi/doan-hoi-15.jpg',
+    caption: 'Chương trình định hướng tân sinh viên và truyền lửa nhiệt huyết tuổi trẻ Bách Khoa',
+    tag: 'Định Hướng Tân Sinh Viên'
+  },
+  {
+    src: 'assets/doan-hoi/doan-hoi-16.jpg',
+    caption: 'Kỷ niệm gắn bó cùng các thầy cô giảng viên và ban chấp hành Đoàn trường qua các năm',
+    tag: 'Kỷ Niệm Tuổi Trẻ Bách Khoa'
+  }
+];
+
+let currentGalleryIdx = 0;
+let galleryInterval = null;
+let isAutoPlaying = true;
+
+function renderGallerySlide(index) {
+  if (index < 0) index = doanHoiPhotos.length - 1;
+  if (index >= doanHoiPhotos.length) index = 0;
+  currentGalleryIdx = index;
+
+  const photo = doanHoiPhotos[currentGalleryIdx];
+  const mainImg = document.getElementById('gallery-main-img');
+  const captionEl = document.getElementById('gallery-caption');
+  const tagEl = document.getElementById('gallery-tag');
+  const counterEl = document.getElementById('gallery-counter');
+
+  if (mainImg) {
+    mainImg.style.opacity = '0';
+    setTimeout(() => {
+      mainImg.src = photo.src;
+      mainImg.alt = photo.caption;
+      mainImg.style.opacity = '1';
+    }, 150);
+  }
+
+  if (captionEl) captionEl.textContent = photo.caption;
+  if (tagEl) {
+    tagEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span> ${photo.tag}`;
+  }
+  if (counterEl) {
+    counterEl.textContent = `${String(currentGalleryIdx + 1).padStart(2, '0')} / ${String(doanHoiPhotos.length).padStart(2, '0')}`;
+  }
+
+  // Update active thumbnail
+  const thumbItems = document.querySelectorAll('.thumbnail-item');
+  thumbItems.forEach((thumb, i) => {
+    if (i === currentGalleryIdx) {
+      thumb.classList.add('active');
+      thumb.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    } else {
+      thumb.classList.remove('active');
+    }
+  });
+}
+
+function nextGallerySlide() {
+  renderGallerySlide(currentGalleryIdx + 1);
+}
+
+function prevGallerySlide() {
+  renderGallerySlide(currentGalleryIdx - 1);
+}
+
+function goToGallerySlide(index) {
+  renderGallerySlide(index);
+}
+
+function startGalleryAutoPlay() {
+  if (galleryInterval) clearInterval(galleryInterval);
+  galleryInterval = setInterval(() => {
+    nextGallerySlide();
+  }, 4500);
+}
+
+function stopGalleryAutoPlay() {
+  if (galleryInterval) clearInterval(galleryInterval);
+  galleryInterval = null;
+}
+
+function toggleGalleryAutoPlay() {
+  const btn = document.getElementById('gallery-autoplay-btn');
+  const icon = document.getElementById('autoplay-icon');
+  const text = document.getElementById('autoplay-text');
+
+  if (isAutoPlaying) {
+    stopGalleryAutoPlay();
+    isAutoPlaying = false;
+    if (icon) icon.setAttribute('data-lucide', 'play');
+    if (text) text.textContent = 'Tiếp tục';
+  } else {
+    startGalleryAutoPlay();
+    isAutoPlaying = true;
+    if (icon) icon.setAttribute('data-lucide', 'pause');
+    if (text) text.textContent = 'Tự động chuyển';
+  }
+  lucide.createIcons();
+}
+
+// LIGHTBOX
+function openLightbox() {
+  const lightbox = document.getElementById('gallery-lightbox');
+  if (!lightbox) return;
+  updateLightbox();
+  lightbox.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+  stopGalleryAutoPlay();
+}
+
+function closeLightbox() {
+  const lightbox = document.getElementById('gallery-lightbox');
+  if (!lightbox) return;
+  lightbox.classList.add('hidden');
+  document.body.style.overflow = 'auto';
+  if (isAutoPlaying) startGalleryAutoPlay();
+}
+
+function updateLightbox() {
+  const photo = doanHoiPhotos[currentGalleryIdx];
+  const img = document.getElementById('lightbox-img');
+  const caption = document.getElementById('lightbox-caption');
+  const counter = document.getElementById('lightbox-counter');
+  if (img) img.src = photo.src;
+  if (caption) caption.textContent = photo.caption;
+  if (counter) counter.textContent = `Ảnh ${currentGalleryIdx + 1} / ${doanHoiPhotos.length} — ${photo.tag}`;
+}
+
+// Keydown navigation for lightbox and gallery
+document.addEventListener('keydown', (e) => {
+  const lightbox = document.getElementById('gallery-lightbox');
+  const isLightboxOpen = lightbox && !lightbox.classList.contains('hidden');
+  if (e.key === 'ArrowRight') {
+    nextGallerySlide();
+    if (isLightboxOpen) updateLightbox();
+  } else if (e.key === 'ArrowLeft') {
+    prevGallerySlide();
+    if (isLightboxOpen) updateLightbox();
+  } else if (e.key === 'Escape' && isLightboxOpen) {
+    closeLightbox();
+  }
+});
+
+// Initialize Gallery on DOM ready
+document.addEventListener('DOMContentLoaded', () => {
+  const thumbContainer = document.getElementById('thumbnails-container');
+  if (thumbContainer) {
+    thumbContainer.innerHTML = doanHoiPhotos.map((photo, i) => `
+      <div class="thumbnail-item relative w-20 sm:w-24 h-14 sm:h-16 ${i === 0 ? 'active' : ''}" onclick="goToGallerySlide(${i})">
+        <img src="${photo.src}" alt="${photo.caption}" class="w-full h-full object-cover rounded-lg">
+        <span class="absolute bottom-1 right-1 bg-black/70 px-1 py-0.5 rounded text-[9px] font-mono text-white">${String(i + 1).padStart(2, '0')}</span>
+      </div>
+    `).join('');
+  }
+
+  renderGallerySlide(0);
+  startGalleryAutoPlay();
+
+  // Pause on hover
+  const galleryBox = document.querySelector('#gallery .relative');
+  galleryBox?.addEventListener('mouseenter', () => {
+    if (isAutoPlaying) stopGalleryAutoPlay();
+  });
+  galleryBox?.addEventListener('mouseleave', () => {
+    if (isAutoPlaying) startGalleryAutoPlay();
+  });
+});
