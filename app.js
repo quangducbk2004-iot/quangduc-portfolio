@@ -487,7 +487,7 @@ let currentGalleryIdx = 0;
 let galleryInterval = null;
 let isAutoPlaying = true;
 
-function renderGallerySlide(index) {
+function renderGallerySlide(index, scrollThumb = true) {
   if (index < 0) index = doanHoiPhotos.length - 1;
   if (index >= doanHoiPhotos.length) index = 0;
   currentGalleryIdx = index;
@@ -515,12 +515,16 @@ function renderGallerySlide(index) {
     counterEl.textContent = `${String(currentGalleryIdx + 1).padStart(2, '0')} / ${String(doanHoiPhotos.length).padStart(2, '0')}`;
   }
 
-  // Update active thumbnail
+  // Update active thumbnail (do NOT use scrollIntoView to avoid window jumping)
   const thumbItems = document.querySelectorAll('.thumbnail-item');
+  const thumbContainer = document.getElementById('thumbnails-container');
   thumbItems.forEach((thumb, i) => {
     if (i === currentGalleryIdx) {
       thumb.classList.add('active');
-      thumb.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      if (scrollThumb && thumbContainer) {
+        const targetScrollLeft = thumb.offsetLeft - (thumbContainer.clientWidth / 2) + (thumb.clientWidth / 2);
+        thumbContainer.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
+      }
     } else {
       thumb.classList.remove('active');
     }
@@ -615,6 +619,11 @@ document.addEventListener('keydown', (e) => {
 
 // Initialize Gallery on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
+  // Ensure page starts at top if no URL hash
+  if (!window.location.hash) {
+    window.scrollTo(0, 0);
+  }
+
   const thumbContainer = document.getElementById('thumbnails-container');
   if (thumbContainer) {
     thumbContainer.innerHTML = doanHoiPhotos.map((photo, i) => `
@@ -625,8 +634,25 @@ document.addEventListener('DOMContentLoaded', () => {
     `).join('');
   }
 
-  renderGallerySlide(0);
-  startGalleryAutoPlay();
+  // Render first slide without scrolling thumbnails or window
+  renderGallerySlide(0, false);
+
+  // Auto-play gallery only when visible on screen
+  const gallerySection = document.getElementById('gallery');
+  if (gallerySection && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (isAutoPlaying) startGalleryAutoPlay();
+        } else {
+          stopGalleryAutoPlay();
+        }
+      });
+    }, { threshold: 0.2 });
+    observer.observe(gallerySection);
+  } else {
+    startGalleryAutoPlay();
+  }
 
   // Pause on hover
   const galleryBox = document.querySelector('#gallery .relative');
