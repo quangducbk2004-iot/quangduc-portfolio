@@ -70,16 +70,17 @@ const projectDatabase = {
     title: 'Ban Chuyên Môn & Truyền Thông CLB Sinh Viên NCKH SRC (17K+ Followers)',
     badge: 'Học Thuật & Quản Trị Truyền Thông',
     year: '08/10/2022 — 26/05/2026',
-    role: 'Thành viên Ban Chuyên Môn & Ban Truyền Thông',
+    role: 'Thành viên Ban Chuyên Môn & Ban Truyền Thông, Leader Điều Phối',
     reach: '17,000+ Người theo dõi Fanpage & Sinh viên ĐHBK',
     rating: 'CLB NCKH hàng đầu Trường Điện - Điện tử',
-    summary: 'Tham gia quản lý truyền thông và tổ chức các sự kiện học thuật, tọa đàm định hướng nghiên cứu khoa học cho sinh viên Trường Điện - Điện tử.',
+    summary: 'Tham gia quản lý truyền thông, tổ chức Vòng chung kết Best Project 2025, định hướng nghiên cứu khoa học và điều phối hoạt động câu lạc bộ.',
     highlights: [
-      'Vận hành nội dung chuyên môn và truyền thông fanpage với quy mô hơn 17.000 followers.',
-      'Tổ chức các buổi tọa đàm, chia sẻ kinh nghiệm NCKH và định hướng chuyên ngành.',
-      'Kết nối mạng lưới sinh viên nghiên cứu với các thầy cô và phòng thí nghiệm trọng điểm.'
+      'Ban tổ chức Vòng chung kết Best Project 2025 (Ban Chuyên môn & Truyền thông cuộc thi).',
+      'Leader điều phối hoạt động ngoại khóa và gắn kết các thành viên CLB Nghiên cứu khoa học.',
+      'Tổ chức hoạt động trải nghiệm STEM, quảng bá và truyền thông các sản phẩm công nghệ của CLB.',
+      'Vận hành nội dung chuyên môn và truyền thông fanpage với quy mô hơn 17.000 followers.'
     ],
-    tags: ['SRC HUST', '17K Followers', 'Academic Seminars', 'Research Community']
+    tags: ['SRC HUST', 'Best Project 2025', 'STEM Experience', '17K Followers']
   },
   'project-youth-union': {
     title: 'Hoạt Động Đoàn Hội, Tập Huấn Cán Bộ & Thiện Nguyện ĐHBK Hà Nội',
@@ -88,13 +89,15 @@ const projectDatabase = {
     role: 'Phó Ban Học Tập BCH Đoàn Trường Điện - Điện tử',
     reach: 'Toàn thể Đoàn viên & Sinh viên Trường Điện',
     rating: 'Nhiệm kỳ 2022 - 2025',
-    summary: 'Giữ vai trò Phó ban học tập BCH Đoàn Thanh niên Trường Điện - Điện tử ĐHBK Hà Nội; trực tiếp tổ chức và điều phối các phong trào học tập, tập huấn cán bộ, thiện nguyện và hiến máu nhân đạo.',
+    summary: 'Giữ vai trò Phó ban học tập BCH Đoàn Thanh niên Trường Điện - Điện tử ĐHBK Hà Nội; tổ chức các phong trào học tập, tập huấn cán bộ, thiện nguyện, hội nghị học tốt và các chiến dịch lan tỏa tinh thần thanh niên Bách Khoa.',
     highlights: [
-      'Tổ chức các tọa đàm chuyên đề về ngành học, phương pháp học tập hiệu quả.',
-      'Tham gia công tác tập huấn cán bộ Đoàn - Hội, xây dựng đội ngũ kế cận năng động.',
-      'Đồng hành tổ chức các chiến dịch thiện nguyện và hiến máu nhân đạo do Bách Khoa phát động.'
+      'Đại biểu Đại hội Đoàn TNCS Hồ Chí Minh ĐHBK Hà Nội nhiệm kỳ 2024 - 2027.',
+      'Tổ chức Hội nghị học tốt & Diễn đàn chia sẻ phương pháp học tập hiệu quả Trường Điện - Điện tử.',
+      'Tập huấn chiến dịch "Bình dân học vụ số — Púng Luông 2025" & Lan tỏa tinh thần yêu nước Đoàn SEEE.',
+      'Chương trình giao lưu kết nối sinh viên SEEE và du học sinh Pháp thuộc Université Paris-Saclay.',
+      'BTC chương trình BK STEAM DAY 2025 dành cho con của các nhà giáo, viên chức ĐHBK Hà Nội.'
     ],
-    tags: ['Đoàn Thanh Niên HUST', 'Phó Ban Học Tập', 'Thiện Nguyện', 'Hiến Máu']
+    tags: ['Đoàn Thanh Niên HUST', 'BCH SEEE', 'Paris-Saclay', 'BK STEAM DAY', 'Púng Luông 2025']
   }
 };
 
@@ -400,83 +403,83 @@ const doanHoiPhotos = [
   },
   {
     src: 'assets/doan-hoi/doan-hoi-04.jpg',
-    caption: 'BCH Đoàn Thanh niên Trường Điện - Điện tử trong kỳ đại hội Đoàn cấp trường',
-    tag: 'Đại Hội Đoàn TN HUST'
+    caption: 'Đại hội Đại biểu _ Đoàn TNCS HỒ CHÍ MINH _ Đại học Bách khoa Hà Nội nhiệm kỳ 2024-2027',
+    tag: 'Đại Hội Đoàn TNCS Hồ Chí Minh HUST'
   },
   {
     src: 'assets/doan-hoi/doan-hoi-05.jpg',
-    caption: 'Ban Chấp hành Đoàn trường Điện - Điện tử tham gia sự kiện truyền thông & hoạt động thanh niên',
-    tag: 'BCH Đoàn Trường Điện'
+    caption: 'Giới thiệu sản phẩm Nhà thông minh IoT tại hội trại trưng bày thành phố Hà Nội',
+    tag: 'Trưng Bày Nhà Thông Minh IoT'
   },
   {
     src: 'assets/doan-hoi/doan-hoi-02.jpg',
-    caption: 'Lễ tổng kết công tác Đoàn - Hội & Tuyên dương cán bộ Đoàn tiêu biểu ĐHBK Hà Nội',
-    tag: 'Tổng Kết & Tuyên Dương'
+    caption: 'Tập huấn cán bộ Đoàn _ Hội trường Điện - Điện tử, Đại học Bách khoa Hà Nội',
+    tag: 'Tập Huấn Cán Bộ Đoàn - Hội SEEE'
   },
   {
     src: 'assets/doan-hoi/doan-hoi-03.jpg',
-    caption: 'Tọa đàm học thuật & Định hướng nghiên cứu khoa học cho sinh viên khối kỹ thuật',
-    tag: 'Tọa Đàm Học Thuật'
+    caption: 'Kết nối với các đoàn viên tại trường, viện khác tại Đại học',
+    tag: 'Kết Nối Đoàn Viên Toàn Trường'
   },
   {
     src: 'assets/doan-hoi/doan-hoi-01.jpg',
-    caption: 'Chương trình giao lưu & kết nối phong trào sinh viên Bách Khoa các khóa',
-    tag: 'Phong Trào Sinh Viên'
+    caption: 'Chương trình giao lưu _ kết nối sinh viên trường Điện _ Điện tử và du học sinh Pháp thuộc UNIVERSITÉ Paris-Saclay',
+    tag: 'Giao Lưu Université Paris-Saclay'
   },
   {
     src: 'assets/doan-hoi/doan-hoi-06.jpg',
-    caption: 'Hoạt động giao lưu, tập huấn cán bộ Đoàn - Hội và phát triển kỹ năng mềm',
-    tag: 'Tập Huấn Cán Bộ Đoàn'
+    caption: 'Tập huấn chiến dịch "Bình dân học vụ số _ Púng Luông 2025"',
+    tag: 'Bình Dân Học Vụ Số Púng Luông 2025'
   },
   {
     src: 'assets/doan-hoi/doan-hoi-07.jpg',
-    caption: 'Tham gia ngày hội HUST OpenDay: Giới thiệu và thuyết minh sản phẩm công nghệ điện tử',
-    tag: 'HUST OpenDay'
+    caption: 'Contestant at DevFest Hà Nội 2024, track IoT',
+    tag: 'DevFest Hà Nội 2024 (Track IoT)'
   },
   {
     src: 'assets/doan-hoi/doan-hoi-08.jpg',
     caption: 'Đại biểu tham gia chương trình tập huấn kỹ năng lãnh đạo thanh niên Bách Khoa',
-    tag: 'Lãnh Đạo Thanh Niên'
+    tag: 'Tập Huấn Lãnh Đạo Thanh Niên'
   },
   {
     src: 'assets/doan-hoi/doan-hoi-09.jpg',
-    caption: 'Chiến dịch thiện nguyện & Hiến máu nhân đạo sinh viên Bách Khoa',
-    tag: 'Hiến Máu Tình Nguyện'
+    caption: 'Chiến dịch lan tỏa tinh thần yêu nước của Đoàn thanh niên SEEE, HUST',
+    tag: 'Đoàn Thanh Niên SEEE - HUST'
   },
   {
     src: 'assets/doan-hoi/doan-hoi-10.jpg',
-    caption: 'Hội nghị học tốt & Diễn đàn chia sẻ phương pháp học tập hiệu quả Trường Điện',
-    tag: 'Hội Nghị Học Tốt'
+    caption: 'Hội nghị học tốt & Diễn đàn chia sẻ phương pháp học tập hiệu quả Trường Điện - Điện tử',
+    tag: 'Hội Nghị Học Tốt SEEE'
   },
   {
     src: 'assets/doan-hoi/doan-hoi-11.jpg',
-    caption: 'Đồng hành và hỗ trợ sinh viên trong các kỳ thi học thuật và nghiên cứu khoa học',
-    tag: 'Hỗ Trợ Sinh Viên'
+    caption: 'Tham gia giải chạy phong trào của sở văn hóa và thể thao Hà Nội',
+    tag: 'Giải Chạy Sở VH&TT Hà Nội'
   },
   {
     src: 'assets/doan-hoi/doan-hoi-12.jpg',
-    caption: 'Đoàn trường Điện - Điện tử tham gia các phong trào thi đua thanh niên xung kích',
-    tag: 'Thanh Niên Xung Kích'
+    caption: 'Ban tổ chức Vòng chung kết Best Project 2025 _ ban Chuyên môn và truyền thông cuộc thi',
+    tag: 'BTC VCK Best Project 2025'
   },
   {
     src: 'assets/doan-hoi/doan-hoi-13.jpg',
-    caption: 'Ban chuyên môn & Truyền thông CLB Sinh viên NCKH SRC (17K+ Followers)',
-    tag: 'CLB NCKH SRC'
+    caption: 'Tham gia chia sẻ và định hướng học sinh THPT trong ngày hội Openday Bách Khoa 2026',
+    tag: 'HUST OpenDay 2026'
   },
   {
     src: 'assets/doan-hoi/doan-hoi-14.jpg',
-    caption: 'Hoạt động ngoại khóa & Gắn kết các thành viên câu lạc bộ nghiên cứu khoa học',
-    tag: 'Sinh Hoạt CLB SRC'
+    caption: 'Hoạt động ngoại khóa & Leader điều phối các thành viên câu lạc bộ nghiên cứu khoa học',
+    tag: 'Leader Điều Phối CLB NCKH'
   },
   {
     src: 'assets/doan-hoi/doan-hoi-15.jpg',
-    caption: 'Chương trình định hướng tân sinh viên và truyền lửa nhiệt huyết tuổi trẻ Bách Khoa',
-    tag: 'Định Hướng Tân Sinh Viên'
+    caption: 'BTC chương trình BK STEAM DAY 2025 dành cho con của các nhà giáo, viên chức của Đại học Bách khoa Hà Nội',
+    tag: 'BTC BK STEAM DAY 2025'
   },
   {
     src: 'assets/doan-hoi/doan-hoi-16.jpg',
-    caption: 'Kỷ niệm gắn bó cùng các thầy cô giảng viên và ban chấp hành Đoàn trường qua các năm',
-    tag: 'Kỷ Niệm Tuổi Trẻ Bách Khoa'
+    caption: 'Hoạt động trải nghiệm STEM _ Quảng bá và truyền thông các sản phẩm của CLB.',
+    tag: 'Trải Nghiệm STEM & Sản Phẩm CLB'
   }
 ];
 
