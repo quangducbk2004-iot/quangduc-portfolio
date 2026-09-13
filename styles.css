@@ -167,6 +167,28 @@ html {
   transform: scale(1.05);
 }
 
+.thumbnail-item-ambassador {
+  transition: all 0.25s ease;
+  cursor: pointer;
+  flex-shrink: 0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 2px solid transparent;
+  opacity: 0.6;
+}
+
+.thumbnail-item-ambassador:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.thumbnail-item-ambassador.active {
+  opacity: 1;
+  border-color: #3b82f6;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.6);
+  transform: scale(1.05);
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }

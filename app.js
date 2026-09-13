@@ -159,6 +159,29 @@ function openProjectModal(projectId) {
         </ul>
       </div>
 
+      ${(projectId === 'project-code-optimization' || projectId === 'project-gemini-series') ? `
+      <div class="pt-2">
+        <div class="flex items-center justify-between mb-2.5">
+          <h4 class="text-xs font-mono uppercase tracking-wider text-blue-400 flex items-center gap-1.5">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> /HÌNH ẢNH CHƯƠNG TRÌNH ĐẠI SỨ THỰC TẾ
+          </h4>
+          <a href="#ambassador-gallery" onclick="closeProjectModal()" class="text-xs font-mono text-blue-400 hover:underline flex items-center gap-1">
+            Xem toàn bộ 11 ảnh <i data-lucide="arrow-right" class="w-3 h-3"></i>
+          </a>
+        </div>
+        <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
+          ${daiSuPhotos.slice(0, 6).map((photo, i) => `
+            <div class="aspect-square rounded-xl overflow-hidden border border-juno-border hover:border-blue-500 cursor-pointer transition-all hover:scale-105 relative group" onclick="closeProjectModal(); document.getElementById('ambassador-gallery').scrollIntoView({behavior:'smooth'}); goToAmbassadorSlide(${i});">
+              <img src="${photo.src}" alt="${photo.caption}" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-[10px] font-mono">
+                #${i+1}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+      ` : ''}
+
       ${(projectId === 'project-youth-union' || projectId === 'project-src-club') ? `
       <div class="pt-2">
         <div class="flex items-center justify-between mb-2.5">
@@ -602,8 +625,201 @@ function updateLightbox() {
   if (counter) counter.textContent = `Ảnh ${currentGalleryIdx + 1} / ${doanHoiPhotos.length} — ${photo.tag}`;
 }
 
-// Keydown navigation for lightbox and gallery
+// =========================================================================
+// 11. ĐẠI SỨ SINH VIÊN PHOTO GALLERY CAROUSEL LOGIC (11 IMAGES)
+// =========================================================================
+const daiSuPhotos = [
+  {
+    src: 'assets/dai-su/dai-su-01.jpg',
+    caption: 'Ảnh 1: Đào Quang Đức — Đại sứ Sinh viên Google (Google Student Ambassador — #TeamGoogle)',
+    tag: 'Google Student Ambassador'
+  },
+  {
+    src: 'assets/dai-su/dai-su-02.jpg',
+    caption: 'Ảnh 2: Công bố Đào Quang Đức — Đại sứ Truyền thông EPI x HUST (Khối Điện tử Viễn thông & IoT)',
+    tag: 'Đại Sứ Truyền Thông EPI'
+  },
+  {
+    src: 'assets/dai-su/dai-su-03.jpg',
+    caption: 'Ảnh 3: Đào Quang Đức nhận chứng nhận Đại sứ Sinh viên Google (Google Student Ambassador)',
+    tag: 'Chứng Nhận Google Ambassador'
+  },
+  {
+    src: 'assets/dai-su/dai-su-04.jpg',
+    caption: 'Ảnh 4: Check-in tại Bảng vinh danh Google Student Ambassador Việt Nam',
+    tag: 'Bảng Vinh Danh Google'
+  },
+  {
+    src: 'assets/dai-su/dai-su-05.jpg',
+    caption: 'Ảnh 5: Toàn thể Đại sứ Sinh viên Google nhận chứng nhận trên sân khấu hội trường lớn',
+    tag: 'Lễ Vinh Danh Toàn Quốc'
+  },
+  {
+    src: 'assets/dai-su/dai-su-06.jpg',
+    caption: 'Ảnh 6: Đại diện các Đại sứ Sinh viên Google chụp ảnh lưu niệm cùng Ban tổ chức chương trình',
+    tag: 'Mạng Lưới Đại Sứ Google'
+  },
+  {
+    src: 'assets/dai-su/dai-su-07.jpg',
+    caption: 'Ảnh 7: Khai mạc Workshop Đại sứ Sinh viên Google tại Hội trường A2 (Quy mô hàng trăm sinh viên)',
+    tag: 'Workshop Google Hội Trường A2'
+  },
+  {
+    src: 'assets/dai-su/dai-su-08.jpg',
+    caption: 'Ảnh 8: Lễ vinh danh và trao chứng nhận Đại sứ Sinh viên Google tiêu biểu trên sân khấu',
+    tag: 'Trao Chứng Nhận Sân Khấu'
+  },
+  {
+    src: 'assets/dai-su/dai-su-09.jpg',
+    caption: 'Ảnh 9: Bài giới thiệu Đại sứ tuyển dụng & truyền thông EPI — HUST Đào Quang Đức đại diện thế hệ kỹ sư trẻ',
+    tag: 'Đại Sứ Tuyển Dụng EPI'
+  },
+  {
+    src: 'assets/dai-su/dai-su-10.jpg',
+    caption: 'Ảnh 10: Tổng hợp những khoảnh khắc đáng nhớ trong hành trình Đại sứ Sinh viên Google',
+    tag: 'Dấu Ấn Google Ambassador'
+  },
+  {
+    src: 'assets/dai-su/dai-su-11.jpg',
+    caption: 'Ảnh 11: Toàn cảnh hội trường Workshop Google Student Ambassador cùng diễn giả, khách mời và đông đảo sinh viên',
+    tag: 'Đại Sự Kiện Workshop Google'
+  }
+];
+
+let currentAmbassadorIdx = 0;
+let ambassadorInterval = null;
+let isAmbassadorAutoPlaying = true;
+
+function renderAmbassadorSlide(index, scrollThumb = true) {
+  if (index < 0) index = daiSuPhotos.length - 1;
+  if (index >= daiSuPhotos.length) index = 0;
+  currentAmbassadorIdx = index;
+
+  const photo = daiSuPhotos[currentAmbassadorIdx];
+  const mainImg = document.getElementById('ambassador-main-img');
+  const captionEl = document.getElementById('ambassador-caption');
+  const tagEl = document.getElementById('ambassador-tag');
+  const counterEl = document.getElementById('ambassador-counter');
+
+  if (mainImg) {
+    mainImg.style.opacity = '0';
+    setTimeout(() => {
+      mainImg.src = photo.src;
+      mainImg.alt = photo.caption;
+      mainImg.style.opacity = '1';
+    }, 150);
+  }
+
+  if (captionEl) captionEl.textContent = photo.caption;
+  if (tagEl) {
+    tagEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span> ${photo.tag}`;
+  }
+  if (counterEl) {
+    counterEl.textContent = `${String(currentAmbassadorIdx + 1).padStart(2, '0')} / ${String(daiSuPhotos.length).padStart(2, '0')}`;
+  }
+
+  // Update active thumbnail (do NOT use scrollIntoView to avoid window jumping)
+  const thumbItems = document.querySelectorAll('.thumbnail-item-ambassador');
+  const thumbContainer = document.getElementById('ambassador-thumbnails-container');
+  thumbItems.forEach((thumb, i) => {
+    if (i === currentAmbassadorIdx) {
+      thumb.classList.add('active');
+      if (scrollThumb && thumbContainer) {
+        const targetScrollLeft = thumb.offsetLeft - (thumbContainer.clientWidth / 2) + (thumb.clientWidth / 2);
+        thumbContainer.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
+      }
+    } else {
+      thumb.classList.remove('active');
+    }
+  });
+}
+
+function nextAmbassadorSlide() {
+  renderAmbassadorSlide(currentAmbassadorIdx + 1);
+}
+
+function prevAmbassadorSlide() {
+  renderAmbassadorSlide(currentAmbassadorIdx - 1);
+}
+
+function goToAmbassadorSlide(index) {
+  renderAmbassadorSlide(index);
+}
+
+function startAmbassadorAutoPlay() {
+  if (ambassadorInterval) clearInterval(ambassadorInterval);
+  ambassadorInterval = setInterval(() => {
+    nextAmbassadorSlide();
+  }, 4500);
+}
+
+function stopAmbassadorAutoPlay() {
+  if (ambassadorInterval) clearInterval(ambassadorInterval);
+  ambassadorInterval = null;
+}
+
+function toggleAmbassadorAutoPlay() {
+  const icon = document.getElementById('ambassador-autoplay-icon');
+  const text = document.getElementById('ambassador-autoplay-text');
+
+  if (isAmbassadorAutoPlaying) {
+    stopAmbassadorAutoPlay();
+    isAmbassadorAutoPlaying = false;
+    if (icon) icon.setAttribute('data-lucide', 'play');
+    if (text) text.textContent = 'Tiếp tục';
+  } else {
+    startAmbassadorAutoPlay();
+    isAmbassadorAutoPlaying = true;
+    if (icon) icon.setAttribute('data-lucide', 'pause');
+    if (text) text.textContent = 'Tự động chuyển';
+  }
+  lucide.createIcons();
+}
+
+function openAmbassadorLightbox() {
+  const lightbox = document.getElementById('ambassador-lightbox');
+  if (!lightbox) return;
+  updateAmbassadorLightbox();
+  lightbox.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+  stopAmbassadorAutoPlay();
+}
+
+function closeAmbassadorLightbox() {
+  const lightbox = document.getElementById('ambassador-lightbox');
+  if (!lightbox) return;
+  lightbox.classList.add('hidden');
+  document.body.style.overflow = 'auto';
+  if (isAmbassadorAutoPlaying) startAmbassadorAutoPlay();
+}
+
+function updateAmbassadorLightbox() {
+  const photo = daiSuPhotos[currentAmbassadorIdx];
+  const img = document.getElementById('ambassador-lightbox-img');
+  const caption = document.getElementById('ambassador-lightbox-caption');
+  const counter = document.getElementById('ambassador-lightbox-counter');
+  if (img) img.src = photo.src;
+  if (caption) caption.textContent = photo.caption;
+  if (counter) counter.textContent = `Ảnh ${currentAmbassadorIdx + 1} / ${daiSuPhotos.length} — ${photo.tag}`;
+}
+
+// Keydown navigation for both lightboxes and galleries
 document.addEventListener('keydown', (e) => {
+  const ambLightbox = document.getElementById('ambassador-lightbox');
+  const isAmbLightboxOpen = ambLightbox && !ambLightbox.classList.contains('hidden');
+  if (isAmbLightboxOpen) {
+    if (e.key === 'ArrowRight') {
+      nextAmbassadorSlide();
+      updateAmbassadorLightbox();
+    } else if (e.key === 'ArrowLeft') {
+      prevAmbassadorSlide();
+      updateAmbassadorLightbox();
+    } else if (e.key === 'Escape') {
+      closeAmbassadorLightbox();
+    }
+    return;
+  }
+
   const lightbox = document.getElementById('gallery-lightbox');
   const isLightboxOpen = lightbox && !lightbox.classList.contains('hidden');
   if (e.key === 'ArrowRight') {
@@ -624,6 +840,43 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo(0, 0);
   }
 
+  // 1. Initialize Ambassador Gallery
+  const ambThumbContainer = document.getElementById('ambassador-thumbnails-container');
+  if (ambThumbContainer) {
+    ambThumbContainer.innerHTML = daiSuPhotos.map((photo, i) => `
+      <div class="thumbnail-item-ambassador relative w-20 sm:w-24 h-14 sm:h-16 ${i === 0 ? 'active' : ''}" onclick="goToAmbassadorSlide(${i})">
+        <img src="${photo.src}" alt="${photo.caption}" class="w-full h-full object-cover rounded-lg">
+        <span class="absolute bottom-1 right-1 bg-black/70 px-1 py-0.5 rounded text-[9px] font-mono text-white">${String(i + 1).padStart(2, '0')}</span>
+      </div>
+    `).join('');
+  }
+  renderAmbassadorSlide(0, false);
+
+  const ambSection = document.getElementById('ambassador-gallery');
+  if (ambSection && 'IntersectionObserver' in window) {
+    const ambObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (isAmbassadorAutoPlaying) startAmbassadorAutoPlay();
+        } else {
+          stopAmbassadorAutoPlay();
+        }
+      });
+    }, { threshold: 0.2 });
+    ambObserver.observe(ambSection);
+  } else {
+    startAmbassadorAutoPlay();
+  }
+
+  const ambBox = document.querySelector('#ambassador-gallery .relative');
+  ambBox?.addEventListener('mouseenter', () => {
+    if (isAmbassadorAutoPlaying) stopAmbassadorAutoPlay();
+  });
+  ambBox?.addEventListener('mouseleave', () => {
+    if (isAmbassadorAutoPlaying) startAmbassadorAutoPlay();
+  });
+
+  // 2. Initialize Đoàn Hội Gallery
   const thumbContainer = document.getElementById('thumbnails-container');
   if (thumbContainer) {
     thumbContainer.innerHTML = doanHoiPhotos.map((photo, i) => `

@@ -76,14 +76,14 @@
       </a>
 
       <!-- Desktop Links -->
-      <div class="hidden md:flex items-center gap-6 text-xs font-medium text-juno-muted">
+      <div class="hidden md:flex items-center gap-5 text-xs font-medium text-juno-muted">
         <a href="#about" class="hover:text-juno-text transition-colors">Về tôi</a>
         <a href="#projects" class="hover:text-juno-text transition-colors">Dự án & Workshop</a>
-        <a href="#gallery" class="hover:text-juno-text transition-colors text-amber-500 font-semibold">Khoảnh khắc Đoàn Hội</a>
+        <a href="#ambassador-gallery" class="hover:text-juno-text transition-colors text-blue-400 font-semibold flex items-center gap-1"><i data-lucide="sparkles" class="w-3 h-3"></i> Ảnh Đại sứ (11)</a>
+        <a href="#gallery" class="hover:text-juno-text transition-colors text-amber-500 font-semibold flex items-center gap-1"><i data-lucide="image" class="w-3 h-3"></i> Ảnh Đoàn Hội (17)</a>
         <a href="#awards" class="hover:text-juno-text transition-colors">Giải thưởng</a>
         <a href="#experience" class="hover:text-juno-text transition-colors">Kinh nghiệm</a>
-        <a href="#expertise" class="hover:text-juno-text transition-colors">Chuyên môn</a>
-        <a href="#faq" class="hover:text-juno-text transition-colors">FAQ</a>
+        <a href="#contact" class="hover:text-juno-text transition-colors">Liên hệ</a>
       </div>
 
       <!-- Right Action Tools -->
@@ -125,15 +125,16 @@
       </button>
     </div>
 
-    <div class="flex flex-col gap-6 text-xl font-bold text-neutral-300 my-auto">
+    <div class="flex flex-col gap-4 text-base font-bold text-neutral-300 my-auto">
       <a href="#about" class="mobile-nav-link hover:text-white transition-colors">/01 Về tôi</a>
       <a href="#projects" class="mobile-nav-link hover:text-white transition-colors">/02 Dự án & Workshop</a>
-      <a href="#gallery" class="mobile-nav-link text-amber-400 hover:text-white transition-colors">/03 Khoảnh khắc Đoàn Hội & CLB (17 Ảnh)</a>
-      <a href="#awards" class="mobile-nav-link hover:text-white transition-colors">/03 Thành tích & Giải thưởng</a>
-      <a href="#experience" class="mobile-nav-link hover:text-white transition-colors">/04 Hành trình & Kinh nghiệm</a>
-      <a href="#expertise" class="mobile-nav-link hover:text-white transition-colors">/05 Lĩnh vực chuyên môn</a>
-      <a href="#faq" class="mobile-nav-link hover:text-white transition-colors">/06 Hỏi đáp thường gặp</a>
-      <a href="#contact" class="mobile-nav-link hover:text-white transition-colors">/07 Kết nối hợp tác</a>
+      <a href="#ambassador-gallery" class="mobile-nav-link text-blue-400 hover:text-white transition-colors">/03 Ảnh Đại sứ Sinh viên (11 Ảnh)</a>
+      <a href="#gallery" class="mobile-nav-link text-amber-400 hover:text-white transition-colors">/04 Ảnh Đoàn Hội & CLB (17 Ảnh)</a>
+      <a href="#awards" class="mobile-nav-link hover:text-white transition-colors">/05 Thành tích & Giải thưởng</a>
+      <a href="#experience" class="mobile-nav-link hover:text-white transition-colors">/06 Hành trình & Kinh nghiệm</a>
+      <a href="#expertise" class="mobile-nav-link hover:text-white transition-colors">/07 Lĩnh vực chuyên môn</a>
+      <a href="#faq" class="mobile-nav-link hover:text-white transition-colors">/08 Hỏi đáp thường gặp</a>
+      <a href="#contact" class="mobile-nav-link hover:text-white transition-colors">/09 Kết nối hợp tác</a>
     </div>
 
     <div class="pt-6 border-t border-white/10 flex justify-between items-center text-xs text-neutral-400">
@@ -334,11 +335,16 @@
             </p>
           </div>
 
-          <div class="flex flex-wrap gap-2 pt-4 border-t border-juno-border/50 text-xs font-mono text-juno-subtle">
-            <span class="px-2.5 py-1 rounded-md bg-juno-bg border border-juno-border">#GeminiAI</span>
-            <span class="px-2.5 py-1 rounded-md bg-juno-bg border border-juno-border">#PromptEngineering</span>
-            <span class="px-2.5 py-1 rounded-md bg-juno-bg border border-juno-border">#TechniqueManager</span>
-            <span class="px-2.5 py-1 rounded-md bg-juno-bg border border-juno-border">#SEA_Ambassadors</span>
+          <div class="flex flex-wrap items-center justify-between gap-2 pt-4 border-t border-juno-border/50 text-xs font-mono text-juno-subtle">
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded-md bg-juno-bg border border-juno-border">#GeminiAI</span>
+              <span class="px-2.5 py-1 rounded-md bg-juno-bg border border-juno-border">#PromptEngineering</span>
+              <span class="px-2.5 py-1 rounded-md bg-juno-bg border border-juno-border">#TechniqueManager</span>
+              <span class="px-2.5 py-1 rounded-md bg-juno-bg border border-juno-border">#SEA_Ambassadors</span>
+            </div>
+            <a href="#ambassador-gallery" class="text-blue-400 hover:text-blue-300 font-semibold flex items-center gap-1 transition-colors">
+              Xem 11 ảnh Đại sứ <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </a>
           </div>
         </div>
 
@@ -465,8 +471,9 @@
         <!-- PROJECT 1: Workshop 1,580+ AI Senior Dev Testing (Featured Mega Project) -->
         <div class="project-card group" data-category="ai" onclick="openProjectModal('project-code-optimization')">
           <div class="project-img-wrapper relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden bg-neutral-900 border border-juno-border mb-6">
-            <div class="absolute inset-0 bg-gradient-to-tr from-blue-900/60 via-purple-900/40 to-neutral-950/80 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center p-6">
-              <div class="text-center">
+            <img src="assets/dai-su/dai-su-11.jpg" alt="Workshop Gemini 1580+ Sinh viên" class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-tr from-blue-950/90 via-purple-950/75 to-neutral-950/85 flex items-center justify-center p-6">
+              <div class="text-center relative z-10">
                 <span class="inline-block px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/40 text-blue-300 font-mono text-xs font-semibold mb-3">
                   Google Student Ambassador Project
                 </span>
@@ -479,10 +486,10 @@
                 </div>
               </div>
             </div>
-            <div class="absolute top-4 right-4 bg-juno-bg/80 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono border border-juno-border">
+            <div class="absolute top-4 right-4 bg-juno-bg/80 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono border border-juno-border z-10">
               2026
             </div>
-            <div class="absolute bottom-4 left-4 flex gap-2">
+            <div class="absolute bottom-4 left-4 flex gap-2 z-10">
               <span class="px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-white border border-white/10">Technique Manager</span>
               <span class="px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-white border border-white/10">Senior Dev 6-Step</span>
             </div>
@@ -516,8 +523,9 @@
         <!-- PROJECT 2: Gemini Youth Workshop Series (4 Chuyên Đề) -->
         <div class="project-card group" data-category="ai" onclick="openProjectModal('project-gemini-series')">
           <div class="project-img-wrapper relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden bg-neutral-900 border border-juno-border mb-6">
-            <div class="absolute inset-0 bg-gradient-to-tr from-purple-900/60 via-pink-900/40 to-neutral-950/80 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center p-6">
-              <div class="text-center">
+            <img src="assets/dai-su/dai-su-07.jpg" alt="Chuỗi Workshop Gemini" class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-tr from-purple-950/90 via-pink-950/75 to-neutral-950/85 flex items-center justify-center p-6">
+              <div class="text-center relative z-10">
                 <span class="inline-block px-3 py-1 rounded-full bg-purple-500/20 border border-purple-400/40 text-purple-300 font-mono text-xs font-semibold mb-3">
                   Google Gemini Student Series
                 </span>
@@ -530,10 +538,10 @@
                 </div>
               </div>
             </div>
-            <div class="absolute top-4 right-4 bg-juno-bg/80 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono border border-juno-border">
+            <div class="absolute top-4 right-4 bg-juno-bg/80 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono border border-juno-border z-10">
               2026
             </div>
-            <div class="absolute bottom-4 left-4 flex gap-2">
+            <div class="absolute bottom-4 left-4 flex gap-2 z-10">
               <span class="px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-white border border-white/10">4 Chuyên Đề</span>
               <span class="px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-mono text-white border border-white/10">HUST & ĐH Lân Cận</span>
             </div>
@@ -775,13 +783,128 @@
 
 
     <!-- ========================================================================= -->
-    <!-- DEDICATED GALLERY: KHOẢNH KHẮC HOẠT ĐỘNG ĐOÀN HỘI & CLB BÁCH KHOA -->
+    <!-- DEDICATED GALLERY 1: KHOẢNH KHẮC CHƯƠNG TRÌNH ĐẠI SỨ SINH VIÊN (GOOGLE & EPI) -->
+    <!-- ========================================================================= -->
+    <section id="ambassador-gallery" class="mb-28 sm:mb-36 scroll-mt-24">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-6 border-b border-juno-border">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-blue-500 font-semibold flex items-center gap-1.5">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> /03 BỘ SƯU TẬP ĐẠI SỨ SINH VIÊN (11 ẢNH)
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight uppercase mt-2 text-juno-text">
+            Khoảnh Khắc Chương Trình Đại Sứ Sinh Viên
+          </h2>
+        </div>
+        <p class="text-sm text-juno-muted max-w-md mt-4 md:mt-0 font-light">
+          Tuyển tập 11 hình ảnh tiêu biểu ghi dấu ấn hành trình làm Đại sứ Sinh viên Google (Google Student Ambassador) và Đại sứ truyền thông EPI x HUST.
+        </p>
+      </div>
+
+      <!-- Main Carousel Viewer Box (Juno High-End Frame - Google Blue Accent) -->
+      <div class="relative rounded-3xl border border-blue-500/20 bg-juno-card p-3 sm:p-5 shadow-2xl overflow-hidden group">
+        
+        <!-- Viewer Container -->
+        <div class="relative w-full h-[340px] sm:h-[480px] md:h-[580px] rounded-2xl overflow-hidden bg-neutral-950 flex items-center justify-center">
+          
+          <!-- Active Image -->
+          <img id="ambassador-main-img" 
+               src="assets/dai-su/dai-su-01.jpg" 
+               alt="Khoảnh khắc Đại sứ Sinh viên Google" 
+               class="carousel-slide-img w-full h-full object-contain cursor-pointer"
+               onclick="openAmbassadorLightbox()">
+
+          <!-- Top Gradient Shadow -->
+          <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/75 to-transparent pointer-events-none"></div>
+
+          <!-- Bottom Gradient Shadow -->
+          <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/85 via-black/40 to-transparent pointer-events-none"></div>
+
+          <!-- Top Status Chips -->
+          <div class="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none z-10">
+            <span id="ambassador-tag" class="pointer-events-auto px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-xs font-mono text-blue-400 font-semibold flex items-center gap-1.5 shadow-lg">
+              <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+              Google Student Ambassador
+            </span>
+
+            <div class="flex items-center gap-2 pointer-events-auto">
+              <!-- Counter Badge -->
+              <span id="ambassador-counter" class="px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-xs font-mono text-white font-bold shadow-lg">
+                01 / 11
+              </span>
+              <!-- Fullscreen Zoom Button -->
+              <button onclick="openAmbassadorLightbox()" class="p-2 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-all shadow-lg" title="Phóng to ảnh">
+                <i data-lucide="maximize-2" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Nav Buttons (Left / Right) -->
+          <button onclick="prevAmbassadorSlide()" class="absolute left-3 sm:left-5 p-3 sm:p-4 rounded-full bg-black/60 hover:bg-black/90 text-white backdrop-blur-md border border-white/20 hover:scale-110 active:scale-95 transition-all shadow-xl z-10" title="Ảnh trước">
+            <i data-lucide="chevron-left" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+          </button>
+
+          <button onclick="nextAmbassadorSlide()" class="absolute right-3 sm:right-5 p-3 sm:p-4 rounded-full bg-black/60 hover:bg-black/90 text-white backdrop-blur-md border border-white/20 hover:scale-110 active:scale-95 transition-all shadow-xl z-10" title="Ảnh tiếp theo">
+            <i data-lucide="chevron-right" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+          </button>
+
+          <!-- Bottom Caption Bar -->
+          <div class="absolute bottom-4 left-4 right-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-white z-10">
+            <p id="ambassador-caption" class="text-xs sm:text-sm md:text-base font-medium tracking-tight text-neutral-100 max-w-2xl bg-black/60 backdrop-blur-md px-4 py-2 rounded-xl border border-white/15 shadow-lg">
+              Ảnh 1: Đào Quang Đức — Đại sứ Sinh viên Google (Google Student Ambassador — #TeamGoogle)
+            </p>
+            <!-- Auto Play Toggle -->
+            <button id="ambassador-autoplay-btn" onclick="toggleAmbassadorAutoPlay()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black/60 backdrop-blur-md border border-white/15 text-xs font-mono text-neutral-200 hover:text-white transition-all shrink-0 shadow-lg" title="Bật/Tắt tự động chuyển">
+              <i data-lucide="pause" class="w-3.5 h-3.5 text-blue-400" id="ambassador-autoplay-icon"></i>
+              <span id="ambassador-autoplay-text">Tự động chuyển</span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Thumbnails Strip (Horizontal Scroll) -->
+        <div class="mt-4 pt-3 border-t border-juno-border/60">
+          <div class="flex items-center justify-between mb-2 px-1 text-xs font-mono text-juno-muted">
+            <span class="flex items-center gap-1"><i data-lucide="image" class="w-3.5 h-3.5 text-blue-500"></i> Dải 11 ảnh thu nhỏ (Click vào bất kỳ ảnh nào để xem):</span>
+            <span class="text-blue-400 font-semibold">11 ảnh Đại Sứ (Thứ tự 1 - 11)</span>
+          </div>
+          
+          <div id="ambassador-thumbnails-container" class="flex gap-2.5 overflow-x-auto pb-2 pt-1 no-scrollbar scroll-smooth">
+            <!-- Rendered dynamically by JS -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LIGHTBOX MODAL FOR AMBASSADOR PREVIEW -->
+    <div id="ambassador-lightbox" class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center p-4">
+      <button onclick="closeAmbassadorLightbox()" class="absolute top-6 right-6 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all z-20" title="Đóng">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+
+      <button onclick="prevAmbassadorSlide(); updateAmbassadorLightbox();" class="absolute left-4 p-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all z-20" title="Ảnh trước">
+        <i data-lucide="chevron-left" class="w-6 h-6"></i>
+      </button>
+      <button onclick="nextAmbassadorSlide(); updateAmbassadorLightbox();" class="absolute right-4 p-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all z-20" title="Ảnh tiếp">
+        <i data-lucide="chevron-right" class="w-6 h-6"></i>
+      </button>
+
+      <div class="max-w-5xl max-h-[85vh] flex flex-col items-center justify-center">
+        <img id="ambassador-lightbox-img" src="" alt="Zoomed ambassador image" class="max-w-full max-h-[75vh] object-contain rounded-2xl shadow-2xl border border-white/10">
+        <p id="ambassador-lightbox-caption" class="text-sm font-medium text-white text-center mt-4 max-w-2xl px-4"></p>
+        <span id="ambassador-lightbox-counter" class="text-xs font-mono text-neutral-400 mt-1"></span>
+      </div>
+    </div>
+
+
+    <!-- ========================================================================= -->
+    <!-- DEDICATED GALLERY 2: KHOẢNH KHẮC HOẠT ĐỘNG ĐOÀN HỘI & CLB BÁCH KHOA -->
     <!-- ========================================================================= -->
     <section id="gallery" class="mb-28 sm:mb-36 scroll-mt-24">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-6 border-b border-juno-border">
         <div>
           <span class="text-xs font-mono uppercase tracking-widest text-amber-500 font-semibold flex items-center gap-1.5">
-            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> /03 BỘ SƯU TẬP HÌNH ẢNH THỰC TẾ
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> /04 BỘ SƯU TẬP ĐOÀN HỘI & CLB (17 ẢNH)
           </span>
           <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight uppercase mt-2 text-juno-text">
             Khoảnh Khắc Hoạt Động Đoàn Hội & CLB Bách Khoa
