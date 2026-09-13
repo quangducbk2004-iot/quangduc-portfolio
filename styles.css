@@ -196,3 +196,23 @@ html {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* WORKSHOP CARD SLIDESHOW DOTS */
+.workshop-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.35);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.workshop-dot:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.workshop-dot.active {
+  width: 18px;
+  background-color: #c084fc;
+  box-shadow: 0 0 8px rgba(192, 132, 252, 0.8);
+}

@@ -99,7 +99,53 @@ const projectDatabase = {
     ],
     tags: ['Đoàn Thanh Niên HUST', 'BCH SEEE', 'Paris-Saclay', 'BK STEAM DAY', 'Púng Luông 2025']
   }
-};
+// CHUỖI 4 WORKSHOP PHOTO DATA (8 IMAGES)
+const workshopPhotos = [
+  {
+    src: 'assets/workshops/workshop-01.jpg',
+    caption: 'Ảnh 1: Workshop 3: "Gemini Career Quest — CV, Phỏng vấn & Personal Branding bằng AI" (Recap sự kiện tại ĐHBK Hà Nội)',
+    tag: 'Workshop 3: Career Quest & Branding'
+  },
+  {
+    src: 'assets/workshops/workshop-02.jpg',
+    caption: 'Ảnh 2: Workshop 2: "HACK YOUR RESEARCH — Tối ưu NCKH cùng Google AI" (Chụp ảnh kỷ niệm cùng toàn thể sinh viên tham dự)',
+    tag: 'Workshop 2: Hack Your Research'
+  },
+  {
+    src: 'assets/workshops/workshop-03.jpg',
+    caption: 'Ảnh 3: Diễn giả Đào Quang Đức trực tiếp đứng lớp hướng dẫn sinh viên ứng dụng Gemini AI vào nghiên cứu khoa học',
+    tag: 'Workshop 2: Diễn Giả Đào Quang Đức'
+  },
+  {
+    src: 'assets/workshops/workshop-04.jpg',
+    caption: 'Ảnh 4: Thuyết trình và thị phạm quy trình khai thác công cụ AI trong học tập, tổng hợp tài liệu và phản biện đề cương',
+    tag: 'Workshop 2: Thị Phạm AI NCKH'
+  },
+  {
+    src: 'assets/workshops/workshop-05.jpg',
+    caption: 'Ảnh 5: Workshop 1: "Lãnh đạo Gen Z: Tối ưu hóa vận hành CLB với Gemini" (Gắn kết cùng ban chủ nhiệm và cán bộ các câu lạc bộ)',
+    tag: 'Workshop 1: Lãnh Đạo Gen Z & CLB'
+  },
+  {
+    src: 'assets/workshops/workshop-06.jpg',
+    caption: 'Ảnh 6: Chuyên đề "Quyền năng đi đôi với Trách nhiệm (The Power of Gemini) — Bài học về thương hiệu qua Fanpage CLB"',
+    tag: 'Workshop 1: Quản Trị & Trách Nhiệm AI'
+  },
+  {
+    src: 'assets/workshops/workshop-07.jpg',
+    caption: 'Ảnh 7: Hướng dẫn sinh viên thực hành tương tác trực tiếp, quét mã QR Check-out và đánh giá chất lượng buổi đào tạo',
+    tag: 'Workshop 1: Thực Hành & Đánh Giá'
+  },
+  {
+    src: 'assets/workshops/workshop-08.jpg',
+    caption: 'Ảnh 8: Workshop 4: Diễn giả Đào Quang Đức chia sẻ định hướng công nghệ tại Trường Điện - Điện tử (SEEE — HUST)',
+    tag: 'Workshop 4: Định Hướng Công Nghệ SEEE'
+  }
+];
+
+let modalWorkshopIdx = 0;
+let currentWorkshopCardIdx = 0;
+let workshopCardInterval = null;
 
 // 2. MODAL LOGIC
 function openProjectModal(projectId) {
@@ -159,7 +205,63 @@ function openProjectModal(projectId) {
         </ul>
       </div>
 
-      ${(projectId === 'project-code-optimization' || projectId === 'project-gemini-series') ? `
+      ${projectId === 'project-gemini-series' ? `
+      <div class="pt-2">
+        <div class="flex items-center justify-between mb-2.5">
+          <h4 class="text-xs font-mono uppercase tracking-wider text-purple-400 flex items-center gap-1.5">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> /BỘ SƯU TẬP 8 ẢNH THỰC TẾ 4 WORKSHOP
+          </h4>
+          <span class="text-xs font-mono text-purple-300">8 Ảnh Tổ Chức (Thứ tự 1 - 8)</span>
+        </div>
+
+        <!-- Interactive Workshop Slider inside Modal -->
+        <div class="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden bg-neutral-950 border border-purple-500/30 mb-3 group/modalviewer">
+          <img id="modal-workshop-img" 
+               src="${workshopPhotos[modalWorkshopIdx].src}" 
+               alt="${workshopPhotos[modalWorkshopIdx].caption}" 
+               class="w-full h-full object-contain cursor-pointer transition-opacity duration-300" 
+               onclick="openWorkshopLightbox(modalWorkshopIdx)">
+          
+          <div class="absolute top-3 left-3 bg-black/75 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-mono text-purple-300 border border-purple-400/30 shadow-md">
+            <span id="modal-workshop-tag">${workshopPhotos[modalWorkshopIdx].tag}</span>
+          </div>
+          <div class="absolute top-3 right-3 bg-black/75 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-mono text-white border border-white/20 font-bold shadow-md">
+            <span id="modal-workshop-counter">${String(modalWorkshopIdx + 1).padStart(2, '0')} / 08</span>
+          </div>
+
+          <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent p-3 pt-6 flex items-center justify-between text-white z-10">
+            <p id="modal-workshop-caption" class="text-xs sm:text-sm font-medium line-clamp-2 max-w-lg text-neutral-100">
+              ${workshopPhotos[modalWorkshopIdx].caption}
+            </p>
+            <button onclick="openWorkshopLightbox(modalWorkshopIdx)" class="p-1.5 rounded-full bg-white/20 hover:bg-white/30 text-white shrink-0 ml-2 transition-colors" title="Phóng to ảnh">
+              <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+
+          <!-- Nav Buttons -->
+          <button onclick="prevModalWorkshopSlide()" class="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/70 hover:bg-black/90 text-white border border-white/20 transition-all z-10 hover:scale-110 active:scale-95 shadow-lg" title="Ảnh trước">
+            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+          </button>
+          <button onclick="nextModalWorkshopSlide()" class="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/70 hover:bg-black/90 text-white border border-white/20 transition-all z-10 hover:scale-110 active:scale-95 shadow-lg" title="Ảnh tiếp">
+            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <!-- Thumbnails Strip of 8 Workshop Photos -->
+        <div class="grid grid-cols-4 sm:grid-cols-8 gap-2" id="modal-workshop-thumbs">
+          ${workshopPhotos.map((photo, i) => `
+            <div class="modal-workshop-thumb aspect-square rounded-xl overflow-hidden border ${i === modalWorkshopIdx ? 'border-purple-500 ring-2 ring-purple-500/50 scale-105' : 'border-juno-border opacity-70 hover:opacity-100'} cursor-pointer transition-all hover:scale-105 relative group" onclick="goToModalWorkshopSlide(${i})">
+              <img src="${photo.src}" alt="${photo.caption}" class="w-full h-full object-cover">
+              <div class="absolute bottom-0.5 right-0.5 bg-black/75 px-1 py-0.2 rounded text-[8px] font-mono text-white">
+                #${i+1}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+      ` : ''}
+
+      ${projectId === 'project-code-optimization' ? `
       <div class="pt-2">
         <div class="flex items-center justify-between mb-2.5">
           <h4 class="text-xs font-mono uppercase tracking-wider text-blue-400 flex items-center gap-1.5">
@@ -803,8 +905,172 @@ function updateAmbassadorLightbox() {
   if (counter) counter.textContent = `Ảnh ${currentAmbassadorIdx + 1} / ${daiSuPhotos.length} — ${photo.tag}`;
 }
 
-// Keydown navigation for both lightboxes and galleries
+// =========================================================================
+// 12. CHUỖI 4 WORKSHOP SLIDESHOW & MODAL GALLERY FUNCTIONS
+// =========================================================================
+
+// Card Slideshow Functions
+function renderWorkshopCardSlide(index) {
+  if (index < 0) index = workshopPhotos.length - 1;
+  if (index >= workshopPhotos.length) index = 0;
+  currentWorkshopCardIdx = index;
+
+  const photo = workshopPhotos[currentWorkshopCardIdx];
+  const cardImg = document.getElementById('workshop-card-img');
+  const counterEl = document.getElementById('workshop-card-counter');
+
+  if (cardImg) {
+    cardImg.style.opacity = '0.2';
+    setTimeout(() => {
+      cardImg.src = photo.src;
+      cardImg.alt = photo.caption;
+      cardImg.style.opacity = '0.45';
+    }, 120);
+  }
+
+  if (counterEl) {
+    counterEl.textContent = `${String(currentWorkshopCardIdx + 1).padStart(2, '0')} / ${String(workshopPhotos.length).padStart(2, '0')}`;
+  }
+
+  // Update dots
+  const dots = document.querySelectorAll('.workshop-dot');
+  dots.forEach((dot, i) => {
+    if (i === currentWorkshopCardIdx) {
+      dot.classList.add('active');
+    } else {
+      dot.classList.remove('active');
+    }
+  });
+}
+
+function nextWorkshopCardSlide() {
+  renderWorkshopCardSlide(currentWorkshopCardIdx + 1);
+}
+
+function prevWorkshopCardSlide() {
+  renderWorkshopCardSlide(currentWorkshopCardIdx - 1);
+}
+
+function goToWorkshopCardSlide(index) {
+  renderWorkshopCardSlide(index);
+}
+
+function startWorkshopCardAutoPlay() {
+  if (workshopCardInterval) clearInterval(workshopCardInterval);
+  workshopCardInterval = setInterval(() => {
+    nextWorkshopCardSlide();
+  }, 3800);
+}
+
+function stopWorkshopCardAutoPlay() {
+  if (workshopCardInterval) clearInterval(workshopCardInterval);
+  workshopCardInterval = null;
+}
+
+// Modal Workshop Slideshow Functions
+function renderModalWorkshopSlide(index) {
+  if (index < 0) index = workshopPhotos.length - 1;
+  if (index >= workshopPhotos.length) index = 0;
+  modalWorkshopIdx = index;
+
+  const photo = workshopPhotos[modalWorkshopIdx];
+  const imgEl = document.getElementById('modal-workshop-img');
+  const captionEl = document.getElementById('modal-workshop-caption');
+  const tagEl = document.getElementById('modal-workshop-tag');
+  const counterEl = document.getElementById('modal-workshop-counter');
+
+  if (imgEl) {
+    imgEl.style.opacity = '0';
+    setTimeout(() => {
+      imgEl.src = photo.src;
+      imgEl.alt = photo.caption;
+      imgEl.style.opacity = '1';
+    }, 120);
+  }
+
+  if (captionEl) captionEl.textContent = photo.caption;
+  if (tagEl) tagEl.textContent = photo.tag;
+  if (counterEl) counterEl.textContent = `${String(modalWorkshopIdx + 1).padStart(2, '0')} / ${String(workshopPhotos.length).padStart(2, '0')}`;
+
+  const thumbs = document.querySelectorAll('.modal-workshop-thumb');
+  thumbs.forEach((thumb, i) => {
+    if (i === modalWorkshopIdx) {
+      thumb.className = 'modal-workshop-thumb aspect-square rounded-xl overflow-hidden border border-purple-500 ring-2 ring-purple-500/50 scale-105 cursor-pointer transition-all relative group';
+    } else {
+      thumb.className = 'modal-workshop-thumb aspect-square rounded-xl overflow-hidden border border-juno-border opacity-70 hover:opacity-100 cursor-pointer transition-all hover:scale-105 relative group';
+    }
+  });
+}
+
+function nextModalWorkshopSlide() {
+  renderModalWorkshopSlide(modalWorkshopIdx + 1);
+}
+
+function prevModalWorkshopSlide() {
+  renderModalWorkshopSlide(modalWorkshopIdx - 1);
+}
+
+function goToModalWorkshopSlide(index) {
+  renderModalWorkshopSlide(index);
+}
+
+// Workshop Lightbox Functions
+function openWorkshopLightbox(index = 0) {
+  modalWorkshopIdx = index;
+  const lightbox = document.getElementById('workshop-lightbox');
+  if (!lightbox) return;
+  updateWorkshopLightbox();
+  lightbox.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeWorkshopLightbox() {
+  const lightbox = document.getElementById('workshop-lightbox');
+  if (!lightbox) return;
+  lightbox.classList.add('hidden');
+  const projectModal = document.getElementById('project-modal');
+  if (!projectModal || projectModal.classList.contains('hidden')) {
+    document.body.style.overflow = 'auto';
+  }
+}
+
+function updateWorkshopLightbox() {
+  const photo = workshopPhotos[modalWorkshopIdx];
+  const img = document.getElementById('workshop-lightbox-img');
+  const caption = document.getElementById('workshop-lightbox-caption');
+  const counter = document.getElementById('workshop-lightbox-counter');
+  if (img) img.src = photo.src;
+  if (caption) caption.textContent = photo.caption;
+  if (counter) counter.textContent = `Ảnh ${modalWorkshopIdx + 1} / ${workshopPhotos.length} — ${photo.tag}`;
+}
+
+function nextWorkshopLightboxSlide() {
+  modalWorkshopIdx = (modalWorkshopIdx + 1) % workshopPhotos.length;
+  updateWorkshopLightbox();
+  renderModalWorkshopSlide(modalWorkshopIdx);
+}
+
+function prevWorkshopLightboxSlide() {
+  modalWorkshopIdx = (modalWorkshopIdx - 1 + workshopPhotos.length) % workshopPhotos.length;
+  updateWorkshopLightbox();
+  renderModalWorkshopSlide(modalWorkshopIdx);
+}
+
+// Keydown navigation for all lightboxes and galleries
 document.addEventListener('keydown', (e) => {
+  const wsLightbox = document.getElementById('workshop-lightbox');
+  const isWsLightboxOpen = wsLightbox && !wsLightbox.classList.contains('hidden');
+  if (isWsLightboxOpen) {
+    if (e.key === 'ArrowRight') {
+      nextWorkshopLightboxSlide();
+    } else if (e.key === 'ArrowLeft') {
+      prevWorkshopLightboxSlide();
+    } else if (e.key === 'Escape') {
+      closeWorkshopLightbox();
+    }
+    return;
+  }
+
   const ambLightbox = document.getElementById('ambassador-lightbox');
   const isAmbLightboxOpen = ambLightbox && !ambLightbox.classList.contains('hidden');
   if (isAmbLightboxOpen) {
@@ -833,14 +1099,30 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-// Initialize Gallery on DOM ready
+// Initialize Gallery & Slideshows on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
   // Ensure page starts at top if no URL hash
   if (!window.location.hash) {
     window.scrollTo(0, 0);
   }
 
-  // 1. Initialize Ambassador Gallery
+  // 1. Initialize Workshop Card Slideshow
+  const dotsContainer = document.getElementById('workshop-card-dots');
+  if (dotsContainer) {
+    dotsContainer.innerHTML = workshopPhotos.map((_, i) => `
+      <span class="workshop-dot ${i === 0 ? 'active' : ''}" onclick="event.stopPropagation(); goToWorkshopCardSlide(${i})" title="Ảnh ${i+1}"></span>
+    `).join('');
+  }
+  renderWorkshopCardSlide(0);
+
+  const workshopCardImgWrapper = document.getElementById('workshop-card-img')?.closest('.project-img-wrapper');
+  if (workshopCardImgWrapper) {
+    startWorkshopCardAutoPlay();
+    workshopCardImgWrapper.addEventListener('mouseenter', stopWorkshopCardAutoPlay);
+    workshopCardImgWrapper.addEventListener('mouseleave', startWorkshopCardAutoPlay);
+  }
+
+  // 2. Initialize Ambassador Gallery
   const ambThumbContainer = document.getElementById('ambassador-thumbnails-container');
   if (ambThumbContainer) {
     ambThumbContainer.innerHTML = daiSuPhotos.map((photo, i) => `
@@ -876,7 +1158,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isAmbassadorAutoPlaying) startAmbassadorAutoPlay();
   });
 
-  // 2. Initialize Đoàn Hội Gallery
+  // 3. Initialize Đoàn Hội Gallery
   const thumbContainer = document.getElementById('thumbnails-container');
   if (thumbContainer) {
     thumbContainer.innerHTML = doanHoiPhotos.map((photo, i) => `
