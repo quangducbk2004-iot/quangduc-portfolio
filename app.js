@@ -273,10 +273,16 @@ function openProjectModal(projectId) {
             Xem toàn bộ 11 ảnh <i data-lucide="arrow-right" class="w-3 h-3"></i>
           </a>
         </div>
-        <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
-          ${daiSuPhotos.slice(0, 6).map((photo, i) => `
-            <div class="aspect-square rounded-xl overflow-hidden border border-juno-border hover:border-blue-500 cursor-pointer transition-all hover:scale-105 relative group" onclick="closeProjectModal(); document.getElementById('ambassador-gallery').scrollIntoView({behavior:'smooth'}); goToAmbassadorSlide(${i});">
-              <img src="${photo.src}" alt="${photo.caption}" class="w-full h-full object-cover">
+        <div class="grid grid-cols-3 sm:grid-cols-5 gap-2">
+          ${[
+            { photo: daiSuPhotos[0], origIdx: 0 },
+            { photo: daiSuPhotos[2], origIdx: 2 },
+            { photo: daiSuPhotos[3], origIdx: 3 },
+            { photo: daiSuPhotos[4], origIdx: 4 },
+            { photo: daiSuPhotos[5], origIdx: 5 }
+          ].map((item, i) => `
+            <div class="aspect-square rounded-xl overflow-hidden border border-juno-border hover:border-blue-500 cursor-pointer transition-all hover:scale-105 relative group" onclick="closeProjectModal(); document.getElementById('ambassador-gallery').scrollIntoView({behavior:'smooth'}); goToAmbassadorSlide(${item.origIdx});">
+              <img src="${item.photo.src}" alt="${item.photo.caption}" class="w-full h-full object-cover">
               <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-[10px] font-mono">
                 #${i+1}
               </div>
