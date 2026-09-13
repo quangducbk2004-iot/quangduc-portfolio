@@ -99,6 +99,8 @@ const projectDatabase = {
     ],
     tags: ['Đoàn Thanh Niên HUST', 'BCH SEEE', 'Paris-Saclay', 'BK STEAM DAY', 'Púng Luông 2025']
   }
+};
+
 // CHUỖI 4 WORKSHOP PHOTO DATA (8 IMAGES)
 const workshopPhotos = [
   {
@@ -338,8 +340,17 @@ document.getElementById('project-modal')?.addEventListener('click', (e) => {
   if (e.target.id === 'project-modal') closeProjectModal();
 });
 
-// 3. PROJECT FILTER TABS
+// 3. PROJECT FILTER TABS & CORE INITIALIZATION
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize Lucide Icons immediately on DOM ready
+  if (window.lucide) {
+    try {
+      lucide.createIcons();
+    } catch (e) {
+      console.warn('Lucide icon init warning:', e);
+    }
+  }
+
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
 
@@ -383,38 +394,59 @@ document.addEventListener('DOMContentLoaded', () => {
     counters.forEach(counter => {
       const target = parseFloat(counter.getAttribute('data-target'));
       const decimals = parseInt(counter.getAttribute('data-decimals') || '0');
-      const duration = 2000;
+      const duration = 1800;
       const startTime = performance.now();
 
       function updateCounter(currentTime) {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        // easeOutQuad
-        const easeProgress = 1 - (1 - progress) * (1 - progress);
+        // Smooth easeOutCubic
+        const easeProgress = 1 - Math.pow(1 - progress, 3);
         const currentVal = (easeProgress * target).toFixed(decimals);
-        counter.textContent = currentVal;
+        
+        if (target >= 1000 && decimals === 0) {
+          counter.textContent = Number(currentVal).toLocaleString('en-US');
+        } else {
+          counter.textContent = currentVal;
+        }
 
         if (progress < 1) {
           requestAnimationFrame(updateCounter);
         } else {
-          counter.textContent = target.toFixed(decimals);
+          if (target >= 1000 && decimals === 0) {
+            counter.textContent = Number(target).toLocaleString('en-US');
+          } else {
+            counter.textContent = target.toFixed(decimals);
+          }
         }
       }
       requestAnimationFrame(updateCounter);
     });
   }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !animated) {
-        animated = true;
-        runCounters();
-      }
-    });
-  }, { threshold: 0.2 });
+  // Observe the whole stats container
+  const statsBanner = document.querySelector('#hero .counter')?.closest('.grid') || document.querySelector('.counter')?.closest('.grid');
+  if (statsBanner && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !animated) {
+          animated = true;
+          runCounters();
+        }
+      });
+    }, { threshold: 0.1 });
+    observer.observe(statsBanner);
+  } else {
+    runCounters();
+  }
 
-  const statsBanner = document.querySelector('#hero .counter')?.closest('div');
-  if (statsBanner) observer.observe(statsBanner);
+  // Fallback: Ensure counters animate even if IntersectionObserver doesn't trigger
+  setTimeout(() => {
+    if (!animated) {
+      animated = true;
+      runCounters();
+    }
+  }, 400);
 
   // 6. SCROLL PROGRESS BAR
   window.addEventListener('scroll', () => {
@@ -1197,4 +1229,13 @@ document.addEventListener('DOMContentLoaded', () => {
   galleryBox?.addEventListener('mouseleave', () => {
     if (isAutoPlaying) startGalleryAutoPlay();
   });
+
+  // Re-run lucide.createIcons to ensure dynamically injected icons are rendered
+  if (window.lucide) {
+    try {
+      lucide.createIcons();
+    } catch (e) {
+      console.warn('Lucide icon refresh warning:', e);
+    }
+  }
 });
