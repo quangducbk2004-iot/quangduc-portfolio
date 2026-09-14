@@ -572,7 +572,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // COPY EMAIL HELPER
 function copyEmail() {
-  const email = 'quangduc.hust.official@gmail.com';
+  const email = 'ducdq2004@gmail.com';
   navigator.clipboard.writeText(email).then(() => {
     showToast('Đã sao chép email: ' + email);
   }).catch(() => {
