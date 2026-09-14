@@ -39,7 +39,7 @@ const projectDatabase = {
     badge: 'Content Creation & Storytelling',
     year: '2022 — Nay',
     role: 'Content Creator & Producer',
-    reach: '31,100+ Lượt thích & ~800 Người theo dõi',
+    reach: '31,100+ Lượt thích & 1000+ Người theo dõi',
     rating: '4+ Giải Thưởng Video Cuộc Thi',
     summary: 'Kênh TikTok cá nhân chia sẻ về cuộc sống chân thực của sinh viên Bách Khoa, hành trình nỗ lực, kinh nghiệm đi làm, thực tập và hướng dẫn sử dụng công nghệ cho sinh viên khối kỹ thuật.',
     highlights: [
@@ -49,7 +49,7 @@ const projectDatabase = {
       'Đạt Giải Nhì cuộc thi "Learn With Tech" (Phương pháp học tập cùng công nghệ).',
       'Xây dựng phong cách video gần gũi, truyền cảm hứng và mang lại giá trị thực tiễn cho giới trẻ.'
     ],
-    tags: ['TikTok Creator', 'HUST Life', 'Tech Vlogging', 'Video Awards', '31.1K Likes']
+    tags: ['TikTok Creator', 'HUST Life', 'Tech Vlogging', 'Video Awards', '31.1K Likes', '1000+ Followers']
   },
   'project-stem-lab': {
     title: 'Lab BK_FET & Triển Lãm Kỹ Thuật HUST OpenDay',
@@ -311,6 +311,47 @@ function openProjectModal(projectId) {
               </div>
             </div>
           `).join('')}
+        </div>
+      </div>
+      ` : ''}
+
+      ${projectId === 'project-tiktok-channel' ? `
+      <div class="pt-2">
+        <div class="flex items-center justify-between mb-2.5">
+          <h4 class="text-xs font-mono uppercase tracking-wider text-pink-400 flex items-center gap-1.5">
+            <i data-lucide="video" class="w-3.5 h-3.5"></i> /HÌNH ẢNH TRANG CÁ NHÂN TIKTOK THỰC TẾ
+          </h4>
+          <a href="https://www.tiktok.com/@hust_my_dream" target="_blank" rel="noopener" class="text-xs font-mono text-pink-400 hover:underline flex items-center gap-1">
+            Ghé thăm @hust_my_dream <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
+          </a>
+        </div>
+        
+        <div class="rounded-2xl border border-pink-500/30 bg-neutral-950 p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-center gap-5 shadow-2xl relative overflow-hidden">
+          <div class="relative w-full max-w-[240px] sm:max-w-[260px] rounded-xl overflow-hidden border border-white/10 shadow-xl bg-neutral-900 group/ttimg shrink-0">
+            <img src="assets/tiktok/tiktok-profile-app.jpg" 
+                 alt="Trang cá nhân TikTok @hust_my_dream Đào Quang Đức (1000+ Follower, 31.1K Thích)" 
+                 class="w-full h-auto object-contain transition-transform duration-500 group-hover/ttimg:scale-105 cursor-pointer"
+                 onclick="window.open('https://www.tiktok.com/@hust_my_dream', '_blank')">
+            <div class="absolute bottom-2 inset-x-2 bg-black/85 backdrop-blur-md px-2.5 py-1.5 rounded-lg border border-white/15 text-center text-[10px] font-mono text-neutral-200">
+              31,100+ Lượt thích • 1000+ Người theo dõi
+            </div>
+          </div>
+          
+          <div class="text-xs text-juno-muted font-light space-y-2.5 text-center sm:text-left">
+            <div class="inline-block px-3 py-1 rounded-full bg-pink-500/20 border border-pink-400/30 text-pink-300 font-mono text-[11px] font-semibold">
+              TikTok Official Creator
+            </div>
+            <h5 class="text-sm font-bold text-white tracking-tight">Kênh TikTok: @hust_my_dream</h5>
+            <p class="leading-relaxed">
+              Kênh chia sẻ chân thực về cuộc sống, học tập, nghiên cứu và làm đồ án của sinh viên Đại học Bách Khoa Hà Nội. Lan tỏa cảm hứng công nghệ qua các video đạt giải thưởng với hơn <strong class="text-white">31,100+ lượt thích</strong> và <strong class="text-white">1000+ người theo dõi</strong>.
+            </p>
+            <div class="pt-1">
+              <a href="https://www.tiktok.com/@hust_my_dream" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-pink-500/20 hover:bg-pink-500/30 text-pink-300 border border-pink-500/40 text-xs font-semibold transition-all shadow-md">
+                <i data-lucide="video" class="w-3.5 h-3.5"></i>
+                <span>Truy cập Kênh TikTok @hust_my_dream</span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       ` : ''}
