@@ -189,6 +189,28 @@ html {
   transform: scale(1.05);
 }
 
+.thumbnail-item-award {
+  transition: all 0.25s ease;
+  cursor: pointer;
+  flex-shrink: 0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 2px solid transparent;
+  opacity: 0.6;
+}
+
+.thumbnail-item-award:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.thumbnail-item-award.active {
+  opacity: 1;
+  border-color: #eab308;
+  box-shadow: 0 0 12px rgba(234, 179, 8, 0.6);
+  transform: scale(1.05);
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }

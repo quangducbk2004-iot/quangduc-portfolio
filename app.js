@@ -1135,8 +1135,155 @@ function prevWorkshopLightboxSlide() {
   renderModalWorkshopSlide(modalWorkshopIdx);
 }
 
+// =========================================================================
+// 13. TỔNG HỢP HÌNH ẢNH GIẢI THƯỞNG HUST (26 ẢNH)
+// =========================================================================
+const awardPhotos = Array.from({ length: 26 }, (_, i) => ({
+  src: `assets/awards/award-${String(i + 1).padStart(2, '0')}.jpg`,
+  alt: `Giải thưởng HUST ${i + 1}`
+}));
+
+let currentAwardIdx = 0;
+let awardsInterval = null;
+let isAwardsAutoPlaying = true;
+
+function renderAwardSlide(index, scrollThumb = true) {
+  if (index < 0) index = awardPhotos.length - 1;
+  if (index >= awardPhotos.length) index = 0;
+  currentAwardIdx = index;
+
+  const photo = awardPhotos[currentAwardIdx];
+  const mainImg = document.getElementById('awards-main-img');
+  const counterEl = document.getElementById('awards-counter');
+  const numDisplay = document.getElementById('award-num-display');
+
+  if (mainImg) {
+    mainImg.style.opacity = '0';
+    setTimeout(() => {
+      mainImg.src = photo.src;
+      mainImg.alt = photo.alt;
+      mainImg.style.opacity = '1';
+    }, 150);
+  }
+
+  if (counterEl) {
+    counterEl.textContent = `${String(currentAwardIdx + 1).padStart(2, '0')} / ${String(awardPhotos.length).padStart(2, '0')}`;
+  }
+  if (numDisplay) {
+    numDisplay.textContent = String(currentAwardIdx + 1).padStart(2, '0');
+  }
+
+  // Update active thumbnail
+  const thumbItems = document.querySelectorAll('.thumbnail-item-award');
+  const thumbContainer = document.getElementById('awards-thumbnails-container');
+  thumbItems.forEach((thumb, i) => {
+    if (i === currentAwardIdx) {
+      thumb.classList.add('active');
+      if (scrollThumb && thumbContainer) {
+        const targetScrollLeft = thumb.offsetLeft - (thumbContainer.clientWidth / 2) + (thumb.clientWidth / 2);
+        thumbContainer.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
+      }
+    } else {
+      thumb.classList.remove('active');
+    }
+  });
+}
+
+function nextAwardSlide() {
+  renderAwardSlide(currentAwardIdx + 1);
+}
+
+function prevAwardSlide() {
+  renderAwardSlide(currentAwardIdx - 1);
+}
+
+function goToAwardSlide(index) {
+  renderAwardSlide(index);
+}
+
+function startAwardsAutoPlay() {
+  if (awardsInterval) clearInterval(awardsInterval);
+  awardsInterval = setInterval(() => {
+    nextAwardSlide();
+  }, 3500);
+  isAwardsAutoPlaying = true;
+  updateAwardsAutoPlayUI();
+}
+
+function stopAwardsAutoPlay() {
+  if (awardsInterval) {
+    clearInterval(awardsInterval);
+    awardsInterval = null;
+  }
+  isAwardsAutoPlaying = false;
+  updateAwardsAutoPlayUI();
+}
+
+function toggleAwardsAutoPlay() {
+  if (isAwardsAutoPlaying) {
+    stopAwardsAutoPlay();
+  } else {
+    startAwardsAutoPlay();
+  }
+}
+
+function updateAwardsAutoPlayUI() {
+  const icon = document.getElementById('awards-autoplay-icon');
+  const text = document.getElementById('awards-autoplay-text');
+  if (icon && text) {
+    if (isAwardsAutoPlaying) {
+      icon.setAttribute('data-lucide', 'pause');
+      text.textContent = 'Tự động chuyển';
+    } else {
+      icon.setAttribute('data-lucide', 'play');
+      text.textContent = 'Tiếp tục';
+    }
+    lucide.createIcons();
+  }
+}
+
+function openAwardsLightbox() {
+  const lightbox = document.getElementById('awards-lightbox');
+  if (!lightbox) return;
+  updateAwardsLightbox();
+  lightbox.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+  stopAwardsAutoPlay();
+}
+
+function closeAwardsLightbox() {
+  const lightbox = document.getElementById('awards-lightbox');
+  if (!lightbox) return;
+  lightbox.classList.add('hidden');
+  document.body.style.overflow = 'auto';
+  if (isAwardsAutoPlaying) startAwardsAutoPlay();
+}
+
+function updateAwardsLightbox() {
+  const photo = awardPhotos[currentAwardIdx];
+  const img = document.getElementById('awards-lightbox-img');
+  const counter = document.getElementById('awards-lightbox-counter');
+  if (img) img.src = photo.src;
+  if (counter) counter.textContent = `Tổng hợp Giải thưởng HUST: Ảnh ${String(currentAwardIdx + 1).padStart(2, '0')} / ${String(awardPhotos.length).padStart(2, '0')}`;
+}
+
 // Keydown navigation for all lightboxes and galleries
 document.addEventListener('keydown', (e) => {
+  const awardsLightbox = document.getElementById('awards-lightbox');
+  const isAwardsLightboxOpen = awardsLightbox && !awardsLightbox.classList.contains('hidden');
+  if (isAwardsLightboxOpen) {
+    if (e.key === 'ArrowRight') {
+      nextAwardSlide();
+      updateAwardsLightbox();
+    } else if (e.key === 'ArrowLeft') {
+      prevAwardSlide();
+      updateAwardsLightbox();
+    } else if (e.key === 'Escape') {
+      closeAwardsLightbox();
+    }
+    return;
+  }
+
   const wsLightbox = document.getElementById('workshop-lightbox');
   const isWsLightboxOpen = wsLightbox && !wsLightbox.classList.contains('hidden');
   if (isWsLightboxOpen) {
@@ -1275,6 +1422,46 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   galleryBox?.addEventListener('mouseleave', () => {
     if (isAutoPlaying) startGalleryAutoPlay();
+  });
+
+  // 4. Initialize Awards Gallery (26 images)
+  const awardsThumbContainer = document.getElementById('awards-thumbnails-container');
+  if (awardsThumbContainer) {
+    awardsThumbContainer.innerHTML = awardPhotos.map((photo, i) => `
+      <div class="thumbnail-item-award relative w-20 sm:w-24 h-14 sm:h-16 ${i === 0 ? 'active' : ''}" onclick="goToAwardSlide(${i})">
+        <img src="${photo.src}" alt="${photo.alt}" class="w-full h-full object-cover rounded-lg" loading="lazy">
+        <span class="absolute bottom-1 right-1 bg-black/70 px-1 py-0.5 rounded text-[9px] font-mono text-white">${String(i + 1).padStart(2, '0')}</span>
+      </div>
+    `).join('');
+  }
+
+  // Render first slide without scrolling thumbnails or window
+  renderAwardSlide(0, false);
+
+  // Auto-play awards gallery only when visible on screen
+  const awardsSection = document.getElementById('awards-gallery');
+  if (awardsSection && 'IntersectionObserver' in window) {
+    const awardsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (isAwardsAutoPlaying) startAwardsAutoPlay();
+        } else {
+          stopAwardsAutoPlay();
+        }
+      });
+    }, { threshold: 0.2 });
+    awardsObserver.observe(awardsSection);
+  } else {
+    startAwardsAutoPlay();
+  }
+
+  // Pause on hover
+  const awardsBox = document.querySelector('#awards-gallery .relative');
+  awardsBox?.addEventListener('mouseenter', () => {
+    if (isAwardsAutoPlaying) stopAwardsAutoPlay();
+  });
+  awardsBox?.addEventListener('mouseleave', () => {
+    if (isAwardsAutoPlaying) startAwardsAutoPlay();
   });
 
   // Re-run lucide.createIcons to ensure dynamically injected icons are rendered
