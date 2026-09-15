@@ -1264,7 +1264,7 @@ function updateAwardsLightbox() {
   const img = document.getElementById('awards-lightbox-img');
   const counter = document.getElementById('awards-lightbox-counter');
   if (img) img.src = photo.src;
-  if (counter) counter.textContent = `Tổng hợp Giải thưởng HUST: Ảnh ${String(currentAwardIdx + 1).padStart(2, '0')} / ${String(awardPhotos.length).padStart(2, '0')}`;
+  if (counter) counter.textContent = `Tổng hợp một số giải thưởng HUST Tiêu biểu: Ảnh ${String(currentAwardIdx + 1).padStart(2, '0')} / ${String(awardPhotos.length).padStart(2, '0')}`;
 }
 
 // Keydown navigation for all lightboxes and galleries
