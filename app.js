@@ -4,18 +4,19 @@
 const projectDatabase = {
   'project-code-optimization': {
     title: 'Workshop: Ứng dụng Gemini trong Tối ưu hóa Mã nguồn & Kiểm thử Phần mềm',
-    badge: 'Google Student Ambassador Project',
+    badge: 'Google Student Ambassador Alumni Project',
     year: '2026',
-    role: 'Technique Manager & Technical Director',
+    role: 'Technique Manager & Technical Director (GSA Alumni)',
     reach: '1,320 Offline + 260 Online (Tổng 1,580+ Sinh viên)',
     rating: '4.28 / 5.0 ⭐ (82% Sẵn sàng lan tỏa kiến thức)',
-    summary: 'Dự án workshop do Đại sứ Sinh viên Google Việt Nam tổ chức đã tạo tác động tích cực sâu rộng đến cộng đồng sinh viên công nghệ bằng việc xóa bỏ thói quen lạm dụng AI thụ động, thay vào đó trang bị quy trình 6 bước sử dụng Gemini như một "Senior Developer" để phản biện logic và kiểm thử mã nguồn.',
+    summary: 'Dự án workshop do Đại sứ Sinh viên Google Việt Nam (Google Student Ambassador) tổ chức — chương trình có tỷ lệ cạnh tranh khốc liệt khi có gần 7.000 hồ sơ trên toàn quốc để chọn 600 đại sứ, Đào Quang Đức xuất sắc lọt Top 200 Gemini Rising Star. Dự án đã tạo tác động tích cực sâu rộng đến cộng đồng sinh viên bằng quy trình 6 bước sử dụng Gemini như một "Senior Developer" để phản biện logic và kiểm thử mã nguồn.',
     highlights: [
+      'Google Student Ambassador Alumni — Xuất sắc lọt Top 200 Gemini Rising Star trong số 600 GSA được tuyển chọn từ gần 7.000 hồ sơ toàn quốc (#TeamGoogle).',
       'Trực tiếp đảm nhiệm vai trò Technique Manager: xây dựng toàn bộ phương án dự phòng, kịch bản xử lý sự cố hạ tầng mạng và âm thanh/hình ảnh cho sự kiện 1.500+ người.',
       'Trang bị quy trình 6 bước ứng dụng Gemini: từ phân tích độ phức tạp thuật toán, sinh bộ kiểm thử biên (edge-case tests) đến refactor và tối ưu hiệu năng.',
       'Ghi nhận mức độ hài lòng ấn tượng 4.28/5.0 và 82% người tham gia sẵn sàng chia sẻ cho bạn bè.'
     ],
-    tags: ['Google Gemini AI', 'Software Testing', 'Technique Management', 'Senior Dev Prompting']
+    tags: ['Google Student Ambassador Alumni', 'Gemini Rising Star', 'Software Testing', 'Technique Management', 'Senior Dev Prompting']
   },
   'project-gemini-series': {
     title: 'Chuỗi Workshop Google Gemini for Students (4 Chuyên Đề Đột Phá)',
@@ -812,8 +813,8 @@ function updateLightbox() {
 const daiSuPhotos = [
   {
     src: 'assets/dai-su/dai-su-01.jpg',
-    caption: 'Ảnh 1: Đào Quang Đức — Đại sứ Sinh viên Google (Google Student Ambassador — #TeamGoogle)',
-    tag: 'Google Student Ambassador'
+    caption: 'Ảnh 1: Đào Quang Đức — Google Student Ambassador Alumni (#TeamGoogle — Top 200 Gemini Rising Star)',
+    tag: 'GSA Alumni • Rising Star'
   },
   {
     src: 'assets/dai-su/dai-su-02.jpg',
